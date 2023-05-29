@@ -1,0 +1,53 @@
+button {
+  outline: none;
+}
+
+.btn-without-shadow {
+  padding: 15px 30px;
+  // background-color: $bg-green;
+  border: 3px solid $black;
+  font-weight: 600;
+}
+
+.btn-with-shadow {
+  padding: 10px 30px;
+  border: 3px solid $black;
+  box-shadow: 4px 4px $black;
+}
+
+.app-btn-wrapper {
+  max-width: 400px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.app-btn {
+  width: 130px;
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px #9395a4;
+  color: $white;
+  font-size: 12px;
+  img {
+    width: 24px;
+    margin-right: 10px;
+  }
+}
+
+.buy-sell-btn {
+  height: 50px;
+  width: 100px;
+  font-weight: 600;
+}
+
+.newsletter-section {
+  .app-btn-wrapper {
+    max-width: 300px;
+    margin-left: auto !important;
+  }
+}

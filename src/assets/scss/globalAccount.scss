@@ -1,0 +1,68 @@
+@import "variables";
+@import "buttons";
+
+.global-account-page {
+  .hero {
+    .image-container {
+      width: 350px;
+      height: 500px;
+      margin: 30px auto;
+      img:first-child {
+        width: 250px;
+        position: absolute;
+        z-index: 1;
+      }
+
+      img:nth-child(2) {
+        width: 200px;
+        position: absolute;
+        right: 0;
+        bottom: 20%;
+      }
+
+      .text-box {
+        width: 350px;
+        // height: 100px;
+        background-color: #fcb721;
+        box-shadow: 6px 6px $black;
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        padding: 10px;
+        box-sizing: border-box;
+
+        .flag-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          //   justify-content: space-between;
+          img {
+            position: static;
+            width: 30px;
+            margin: 0 20px 10px 0;
+          }
+        }
+      }
+    }
+  }
+
+  .section-two {
+    width: 100%;
+    padding: 20px 50px;
+    background-color: #5fc88f;
+    box-sizing: border-box;
+    border-radius: 20px 0 0 0;
+    position: relative;
+
+    .text-header {
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    img {
+      width: 350px;
+      position: absolute;
+      top: -200px;
+      right: 20%;
+    }
+  }
+}

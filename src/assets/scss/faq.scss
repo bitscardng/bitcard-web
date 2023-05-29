@@ -1,0 +1,17 @@
+@import "variables";
+@import "buttons";
+
+.accordion-section {
+  background-color: #fcb721;
+  width: 100%;
+  padding: 20px;
+
+  .accordion-button:not(.collapsed) {
+    box-shadow: none !important;
+  }
+  .accordion-button:focus {
+    color: black;
+    border-color: transparent !important;
+    box-shadow: none !important;
+  }
+}

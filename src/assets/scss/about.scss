@@ -1,0 +1,12 @@
+@import "variables";
+@import "buttons";
+
+.about-page {
+  .statement-details {
+    background-color: #fcb721;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 6px 6px $black;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,88 @@
+@import "variables";
+@import "buttons";
+
+.virtual-card-page {
+  font-weight: 600;
+  .hero-color-box {
+    img:first-child {
+      position: absolute;
+      left: -40px;
+      bottom: 5%;
+    }
+
+    img:nth-child(2) {
+      position: absolute;
+      right: 5%;
+      top: -50px;
+      z-index: 2;
+    }
+  }
+
+  .section-two {
+    padding: 20px 20px 0 20px;
+    background-color: #5fc88f;
+    box-shadow: 8px 8px $black;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    header {
+      font-weight: 800;
+      font-size: 24px;
+    }
+
+    .img-area {
+      img:nth-child(2) {
+        position: absolute;
+        top: -20px;
+        right: 22%;
+      }
+
+      img:nth-child(3) {
+        position: absolute;
+        right: 32%;
+        top: 25%;
+      }
+
+      img:nth-child(4) {
+        position: absolute;
+        right: 27%;
+        top: 15%;
+      }
+
+      img:nth-child(5) {
+        position: absolute;
+        right: 37%;
+        top: 15%;
+      }
+
+      img:nth-child(6) {
+        width: 350px;
+        position: absolute;
+        right: 20%;
+        top: 30%;
+      }
+    }
+  }
+
+  .section-three {
+    header {
+      h4 {
+        text-decoration: underline;
+      }
+    }
+
+    .text-card {
+      width: 350px;
+      //   height: 200px;
+      padding: 20px;
+      box-sizing: border-box;
+      box-shadow: 8px 8px $black;
+      font-weight: 600;
+      div:first-child {
+        font-weight: 800;
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+  }
+}

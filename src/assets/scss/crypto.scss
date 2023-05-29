@@ -1,0 +1,43 @@
+@import "variables";
+@import "buttons";
+
+.crypto-page {
+  .hero {
+    .hero-color-box {
+      img:first-child {
+        width: 230px;
+        position: absolute;
+        right: 10px;
+        top: -50px;
+      }
+      img:nth-child(2) {
+        width: 300px;
+        position: absolute;
+        bottom: 0;
+        left: -50px;
+      }
+    }
+  }
+
+  .section-two-card {
+    margin: auto;
+    height: 250px;
+    width: 270px;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 6px 6px $black;
+
+    .section-card-header {
+      font-weight: 800;
+      font-size: 24px;
+    }
+  }
+
+  .section-three {
+    .graph-card {
+      width: 500px;
+      height: 400px;
+      background-color: #21242d;
+    }
+  }
+}
