@@ -3,6 +3,12 @@ import "../assets/scss/blog.scss";
 import BlogHero from "../assets/images/blog-hero.png";
 import TwoColumnBlog from "../components/TwoColumnBlog";
 import AppDownloadSection from "../components/AppDownloadSection";
+import ShareBtn from "../assets/images/Vector.png";
+import Fb from "../assets/images/fb.png";
+import Insta from "../assets/images/insta.png";
+import Twitter from "../assets/images/twitter.png";
+import Tumblr from "../assets/images/tumblr.png";
+import { Link } from "react-router-dom";
 
 const BlogDetails = () => {
   return (
@@ -30,6 +36,26 @@ const BlogDetails = () => {
               three weeks. The top cryptocurrency by market value fell to $26,160 before press time, reaching the lowest since March 17, according to
               CoinDesk data. Prices have declined by over 12% since May 6, decoupling from the uptick in traditional risk assets like Nasdaq.
             </p>
+            <div className="blog-details-social">
+              <button>
+                <img src={ShareBtn} alt="" />
+              </button>
+              <Link to="#">
+                <img src={Tumblr} alt="" />
+              </Link>
+
+              <Link to="#">
+                <img src={Insta} alt="" />
+              </Link>
+
+              <Link to="#">
+                <img src={Fb} alt="" />
+              </Link>
+
+              <Link to="#">
+                <img src={Twitter} alt="" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

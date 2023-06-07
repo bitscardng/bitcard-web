@@ -23,15 +23,15 @@ const SectionFour = () => {
 
         <div className="row mt-3">
           <div className="col text-center">
-            <div className="fw-bold">Spend</div>
+            <h3>Spend</h3>
             <div>With our virtual master card you have no spend limit</div>
           </div>
           <div className="col text-center">
-            <div className="fw-bold">Bank</div>
+            <h3>Bank</h3>
             <div>Send and receive payment anywhere in the world with your USD, GBP & EURO account </div>
           </div>
           <div className="col text-center">
-            <div className="fw-bold">Trade</div>
+            <h3>Trade</h3>
             <div>Buy, sell, send and receive crypto, also buy and sell your giftcards.</div>
           </div>
         </div>

@@ -7,11 +7,11 @@ const SectionTwo = () => {
   return (
     <section className="pt-4 pb-5">
       <div className="container">
-        <div className="row align-items-center">
+        <div className="d-flex justify-content-between align-items-center">
           <div className="col-4">
             <h2>Trade everytime and everywhere</h2>
           </div>
-          <div className="col">
+          <div className="col-3">
             <AppDownloadBtn />
           </div>
         </div>

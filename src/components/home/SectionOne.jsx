@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Mastercard from "../../assets/images/Mastercard-Logo 2.png";
 import Phone2 from "../../assets/images/iPhone 12 Pro (Wooden Hands).png";
 import Card from "../../assets/images/Group 5.png";
+import CM from "../../assets/images/cou&map.png";
 
 const SectionOne = () => {
   return (
@@ -20,6 +21,7 @@ const SectionOne = () => {
             <div className="col-7">
               <div className="pink-box">
                 <img src={Phone} alt="" />
+                <img src={CM} alt="" />
               </div>
             </div>
             <div className="col-5">

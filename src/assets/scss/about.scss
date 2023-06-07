@@ -2,11 +2,37 @@
 @import "buttons";
 
 .about-page {
+  .img-wrapper {
+    img:nth-child(1) {
+      z-index: 10;
+      position: relative;
+    }
+    img:nth-child(2) {
+      position: absolute;
+      left: 32%;
+      top: 20%;
+      z-index: 1;
+    }
+
+    img:nth-child(3) {
+      position: absolute;
+      bottom: 15%;
+      left: 33%;
+      width: 200px;
+      z-index: -1;
+    }
+  }
   .statement-details {
     background-color: #fcb721;
     padding: 20px;
     box-sizing: border-box;
     box-shadow: 6px 6px $black;
     font-size: 20px;
+    width: 450px;
+
+    .header {
+      font-size: 24px;
+      font-weight: 800;
+    }
   }
 }

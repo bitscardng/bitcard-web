@@ -8,7 +8,7 @@ const SectionThree = () => {
     <section className="py-4 section-three">
       <div className="container">
         <header className="text-center">
-          <h4>3 simple steps.</h4>
+          <h4>3 Benefits</h4>
         </header>
 
         <div className="row mt-5">

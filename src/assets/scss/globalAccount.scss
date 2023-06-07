@@ -65,4 +65,38 @@
       right: 20%;
     }
   }
+
+  .section-three {
+    width: 100%;
+    min-height: 500px;
+    position: relative;
+
+    .C-T-A {
+      width: 100%;
+      border-radius: 44px 0 0 0;
+      background-color: #d9d9d9;
+      padding: 25px;
+      box-sizing: border-box;
+      margin: 20px 0;
+      font-size: 35px;
+      box-shadow: 8px 8px #000;
+
+      .lady-pic {
+        position: absolute;
+        bottom: 0;
+        width: 400px;
+      }
+
+      .text-box {
+        position: absolute;
+        top: 60px;
+        left: 35%;
+        padding: 20px;
+        border-radius: 20px 0 0 0;
+        background-color: #767dff;
+        width: 600px;
+        font-size: 24px;
+      }
+    }
+  }
 }
