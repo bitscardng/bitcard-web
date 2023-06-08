@@ -15,16 +15,16 @@ const Footer = () => {
             <div className="text-end">
               <h5>Product</h5>
               <div>
-                <Link to="#">Global Account</Link>
+                <Link to="/global-account">Global Account</Link>
               </div>
               <div>
-                <Link to="#">Gift card</Link>
+                <Link to="/giftcard">Gift card</Link>
               </div>
               <div>
-                <Link to="#">Virtual master card</Link>
+                <Link to="/virtual-card">Virtual master card</Link>
               </div>
               <div>
-                <Link to="#">Cryptocurrency</Link>
+                <Link to="/crypto">Cryptocurrency</Link>
               </div>
             </div>
           </div>
@@ -32,16 +32,16 @@ const Footer = () => {
             <div className="text-end">
               <h5>Company</h5>
               <div>
-                <Link to="#">About us</Link>
+                <Link to="/about">About us</Link>
               </div>
               <div>
                 <Link to="#">Ambassador</Link>
               </div>
               <div>
-                <Link to="#">Blog</Link>
+                <Link to="/blog">Blog</Link>
               </div>
               <div>
-                <Link to="#">FAQ</Link>
+                <Link to="/faq">FAQ</Link>
               </div>
             </div>
           </div>
@@ -49,10 +49,10 @@ const Footer = () => {
             <div className="text-end">
               <h5>Contact Us</h5>
               <div>
-                <Link to="#">email : hello@bitscard.co</Link>
+                <Link to="mailto:hello@bitscard.co">email : hello@bitscard.co</Link>
               </div>
               <div>
-                <Link to="#">TEL: 01 229 3581</Link>
+                <Link to="tel:012293581">TEL: 01 229 3581</Link>
               </div>
               <div>
                 <Link to="#">18 Admiralty way lekki, Lagos</Link>

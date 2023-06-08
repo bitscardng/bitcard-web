@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 import Nig from "../../assets/images/nig.png";
 import US from "../../assets/images/usa.png";
 import { Link } from "react-router-dom";
@@ -14,8 +14,13 @@ import country5 from "../../assets/images/united-states.png";
 import country6 from "../../assets/images/ghana.png";
 import country7 from "../../assets/images/united-kingdom.png";
 import country8 from "../../assets/images/european-union.png";
+import { ModalContext } from "../../App";
 
 const Hero = () => {
+  const [modal, setModal] = useContext(ModalContext);
+  const showModal = () => {
+    setModal(true);
+  };
   return (
     <div className="py-3 hero">
       <div className="container">
@@ -75,9 +80,9 @@ const Hero = () => {
               </div>
 
               <div className="my-4 text-center">
-                <Link to="#" className="btn-without-shadow bgc-green">
+                <button onClick={showModal} className="btn-without-shadow bgc-green">
                   Get started
-                </Link>
+                </button>
               </div>
             </div>
 

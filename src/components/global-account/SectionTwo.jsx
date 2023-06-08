@@ -1,8 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import Human from "../../assets/images/human.png";
+import { ModalContext } from "../../App";
 
 const SectionTwo = () => {
+  const [modal, setModal] = useContext(ModalContext);
+  const showModal = () => {
+    setModal(true);
+  };
   return (
     <div className="container section-two my-5">
       <div className="row">
@@ -11,9 +15,9 @@ const SectionTwo = () => {
           <p>Enjoy free transfers and the lowest cross-border rates. More money stays in your pocket, and more arrives in theirs.</p>
 
           <div className="mt-5">
-            <Link style={{ background: "#FCB721" }} className="btn-without-shadow py-2" to="#">
+            <button onClick={showModal} style={{ background: "#FCB721" }} className="btn-without-shadow py-2" to="#">
               Get started
-            </Link>
+            </button>
           </div>
         </div>
         <div className="col">

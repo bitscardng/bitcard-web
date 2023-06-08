@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import Nig from "../../assets/images/nig.png";
 import US from "../../assets/images/usa.png";
-import { Link } from "react-router-dom";
 import Card1 from "../../assets/images/Group 5.png";
 import Card2 from "../../assets/images/Group 4.png";
 import AppleLogo from "../../assets/images/apple.png";
 import playStoreLogo from "../../assets/images/Inner Plugin Iframe.png";
+import ArrowDown from "../../assets/images/arrow down.png";
+import { ModalContext } from "../../App";
 
 const Hero = () => {
+  const [modal, setModal] = useContext(ModalContext);
+  const showModal = () => {
+    setModal(true);
+  };
   return (
     <div className="virtual-card-hero py-5">
       <div className="container">
@@ -31,6 +36,7 @@ const Hero = () => {
                   <div>
                     <img width="30px" src={Nig} alt="nigeria flag" />
                     <span className="ms-2">NGN</span>
+                    <img className="ms-2" width="10" src={ArrowDown} alt="" />
                   </div>
                   <div>74,000</div>
                 </div>
@@ -41,15 +47,16 @@ const Hero = () => {
                   <div>
                     <img width="30px" src={US} alt="USA flag" />
                     <span className="ms-2">USD</span>
+                    <img className="ms-2" width="10" src={ArrowDown} alt="" />
                   </div>
                   <div>100.43</div>
                 </div>
               </div>
 
               <div className="my-4 text-center">
-                <Link to="#" className="btn-without-shadow bgc-green">
+                <button onClick={showModal} className="btn-without-shadow bgc-green">
                   Get started
-                </Link>
+                </button>
               </div>
             </div>
           </div>

@@ -31,7 +31,9 @@ const SectionTwo = () => {
               <div>Buy, sell, send and receive crypto , you can also buy or sell your favorite gift card with us today.</div>
 
               <div className="my-4">
-                <Link className="btn-with-shadow bgc-green">Open free account</Link>
+                <Link to="/global-account" className="btn-with-shadow bgc-green">
+                  Open free account
+                </Link>
               </div>
             </div>
           </div>

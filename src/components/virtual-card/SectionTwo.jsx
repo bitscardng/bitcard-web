@@ -1,12 +1,17 @@
-import React from "react";
+import { useContext } from "react";
 import Phone from "../../assets/images/iPhone 13 Pro (2).png";
 import Netflix from "../../assets/images/netflix.png";
 import Alibaba from "../../assets/images/alibaba.png";
 import Spotify from "../../assets/images/spotify.png";
 import Music from "../../assets/images/music.png";
 import Map from "../../assets/images/map.png";
+import { ModalContext } from "../../App";
 
 const SectionTwo = () => {
+  const [modal, setModal] = useContext(ModalContext);
+  const showModal = () => {
+    setModal(true);
+  };
   return (
     <section className="container section-two">
       <div className="row">
@@ -17,7 +22,7 @@ const SectionTwo = () => {
           </div>
 
           <div className="my-3">
-            <button style={{ background: "#FCB721" }} className="btn-without-shadow">
+            <button onClick={showModal} style={{ background: "#FCB721" }} className="btn-without-shadow">
               Create Card
             </button>
           </div>

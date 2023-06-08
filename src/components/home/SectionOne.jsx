@@ -36,7 +36,7 @@ const SectionOne = () => {
                 <div>Open a US Dollar, Nigerian Naira, Canadian Dollar, UK Pounds account in less than 5 minutes.</div>
 
                 <div className="my-4">
-                  <Link style={{ background: "#767DFF" }} className="btn-with-shadow">
+                  <Link to="/global-account" style={{ background: "#767DFF" }} className="btn-with-shadow">
                     Open free account
                   </Link>
                 </div>
@@ -60,7 +60,7 @@ const SectionOne = () => {
               <div>Open Create a virtual master card for free today and shop online without limit. Find new ways to spend & save.</div>
 
               <div className="my-4">
-                <Link style={{ background: "#F7931A" }} className="btn-with-shadow">
+                <Link to="/virtual-card" style={{ background: "#F7931A" }} className="btn-with-shadow">
                   Create virtual card
                 </Link>
               </div>

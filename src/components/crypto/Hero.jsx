@@ -1,12 +1,17 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Nig from "../../assets/images/nig.png";
 import Bit from "../../assets/images/bit.png";
 import ArrowDown from "../../assets/images/arrow down.png";
 import Phone from "../../assets/images/another-phone.png";
 import BTC from "../../assets/images/BTC 2.png";
+import { ModalContext } from "../../App";
 
 const Hero = () => {
+  const [modal, setModal] = useContext(ModalContext);
+  const showModal = () => {
+    setModal(true);
+  };
   return (
     <div className="py-4 hero">
       <div className="container">
@@ -49,9 +54,9 @@ const Hero = () => {
               </div>
 
               <div className="my-4 text-center">
-                <Link style={{ background: "#F7931A" }} to="#" className="btn-without-shadow">
+                <button onClick={showModal} style={{ background: "#F7931A" }} className="btn-without-shadow">
                   Trade now
-                </Link>
+                </button>
               </div>
             </div>
           </div>

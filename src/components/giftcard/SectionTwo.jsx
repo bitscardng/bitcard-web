@@ -1,9 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import Card1 from "../../assets/images/moneylion.png";
 import Card2 from "../../assets/images/appleCard.png";
+import { ModalContext } from "../../App";
 
 const SectionTwo = () => {
+  const [modal, setModal] = useContext(ModalContext);
+  const showModal = () => {
+    setModal(true);
+  };
   return (
     <div className="section-two container my-4">
       <div className="row">
@@ -11,9 +15,9 @@ const SectionTwo = () => {
           <div className="text-header">Get the best deal for your gift cards with us.</div>
           <p>Over 14000+ international and local gift cards in various categories are available on Bitscard for instant purchase.</p>
           <div className="mb-3 mt-5">
-            <Link style={{ background: "#FCB721" }} className="btn-without-shadow">
+            <button onClick={showModal} style={{ background: "#FCB721" }} className="btn-without-shadow">
               Buy gift card
-            </Link>
+            </button>
           </div>
         </div>
         <div className="col-7 img-column">

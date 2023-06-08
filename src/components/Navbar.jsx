@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../assets/images/newLogo.png";
 import { Link } from "react-router-dom";
 import "../assets/scss/navbar.scss";
+import Down from "../assets/images/Rectangle 2.svg";
 
 const Navbar = () => {
   const [productTab, setProductTab] = React.useState(false);
@@ -24,6 +25,7 @@ const Navbar = () => {
         <div>
           <Link onClick={toggleProductTab} to="#">
             Product
+            <img className="ms-2" src={Down} alt="down-icon" />
           </Link>
           <div className={`product-nav-content shadow-lg ${!productTab && "d-none"}`}>
             <ul className="list-unstyled">

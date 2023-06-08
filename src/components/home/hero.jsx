@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import nig from "../../assets/images/nig.png";
 import usa from "../../assets/images/usa.png";
-import { Link } from "react-router-dom";
 import Fone from "../../assets/images/iPhone.png";
 import Bitcoin from "../../assets/images/bitcoin-black.png";
 import Tether from "../../assets/images/tether-usdt-logo.png";
@@ -10,8 +9,14 @@ import playStoreLogo from "../../assets/images/Inner Plugin Iframe.png";
 import Blackthron from "../../assets/images/blackthorn.png";
 import Mastercard from "../../assets/images/mastercard.png";
 import Bitnob from "../../assets/images/bitnob.png";
+import ArrowDown from "../../assets/images/arrow down.png";
+import { ModalContext } from "../../App";
 
 const Hero = () => {
+  const [modal, setModal] = useContext(ModalContext);
+  const showModal = () => {
+    setModal(true);
+  };
   return (
     <>
       <div className="hero py-4 mt-3">
@@ -27,7 +32,9 @@ const Hero = () => {
                   <div>
                     <img width="30px" src={nig} alt="nigeria flag" />
                     <span className="ms-2">NGN</span>
+                    <img className="ms-2" width="10" src={ArrowDown} alt="" />
                   </div>
+                  <div>74,000</div>
                 </div>
                 <div className="ms-5 my-1">Rate 740/$</div>
 
@@ -35,12 +42,14 @@ const Hero = () => {
                   <div>
                     <img width="30px" src={usa} alt="nigeria flag" />
                     <span className="ms-2">USD</span>
+                    <img className="ms-2" width="10" src={ArrowDown} alt="" />
                   </div>
+                  <div>100.43</div>
                 </div>
                 <div className="my-4 text-center">
-                  <Link to="#" className="btn-without-shadow bgc-green">
+                  <button onClick={showModal} className="btn-without-shadow bgc-green">
                     Get started
-                  </Link>
+                  </button>
                 </div>
               </div>
 
