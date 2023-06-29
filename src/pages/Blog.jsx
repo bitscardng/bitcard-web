@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../components/blog/Hero";
 import "../assets/scss/blog.scss";
 import BlogSection from "../components/blog/BlogSection";
@@ -6,6 +6,9 @@ import AppDownloadSection from "../components/AppDownloadSection";
 import TwoColumnBlog from "../components/TwoColumnBlog";
 
 const Blog = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="blog-page">
       <Hero />

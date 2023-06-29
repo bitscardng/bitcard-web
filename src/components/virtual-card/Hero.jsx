@@ -16,8 +16,8 @@ const Hero = () => {
   return (
     <div className="virtual-card-hero py-5">
       <div className="container">
-        <div className="row align-items-center">
-          <div className="col">
+        <div className="row gap-lg-0 gap-4 align-items-center">
+          <div className="col-lg">
             <h1>Virtual Master Card</h1>
             <p>
               Get all the benefits of the Bitscard mastercard - spend online, in-store and abroad while saving on currency conversion fees, with the
@@ -60,7 +60,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="col">
+          <div className="col-lg">
             <div style={{ background: "#FCB721" }} className="hero-color-box mt-5">
               <img src={Card1} alt="card" />
               <img src={Card2} alt="card" />

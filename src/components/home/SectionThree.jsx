@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Coin3d from "../../assets/images/3d-plastilina-three-quarter-view-of-a-bitcoin-emblem 1.png";
 import Mastercard from "../../assets/images/Group 5.png";
 import Upwork from "../../assets/images/upwork.png";
@@ -11,6 +11,8 @@ import { ModalContext } from "../../App";
 
 const SectionThree = () => {
   const [modal, setModal] = useContext(ModalContext);
+  const [currentRate, setCurrentRate] = useState(768);
+  const [cryptoInput, setCryptoInput] = useState(0);
   const showModal = () => {
     setModal(true);
   };
@@ -18,23 +20,23 @@ const SectionThree = () => {
     <>
       <section className="py-5 section-three">
         <div className="container">
-          <div className="row">
-            <div className="col">
-              <div className="card-one">
+          <div className="row gap-lg-0 gap-5">
+            <div className="col-lg">
+              <div className="card-one mx-lg-0 mx-auto">
                 <img src={Mastercard} alt="" />
                 <img src={Coin3d} alt="" />
                 <div className="head">Virtual card funding</div>
                 <div>You can now create and fund your virtual mastercard with crypto at zero cost.</div>
               </div>
 
-              <div className="card-two">
+              <div className="card-two mx-lg-0 mx-auto">
                 <img src={Upwork} alt="upwork logo" />
                 <img src={Freelancer} alt="freelancer logo" />
                 <div className="head">Receive payment from foreign employers</div>
                 <div>Freelancer, remote worker or corporate employee? Get paid fast and securely!</div>
               </div>
             </div>
-            <div className="col">
+            <div className="col-lg">
               <div className="app-btn-wrapper mx-auto mt-0">
                 <div className="app-btn">
                   <img src={playStoreLogo} alt="google play logo" />
@@ -67,10 +69,12 @@ const SectionThree = () => {
                     <span className="ms-2">BTC</span>
                   </div>
 
-                  <div>$74</div>
+                  <div>
+                    <input onChange={(e) => setCryptoInput(e.target.value)} value={cryptoInput} className="crypto-input-box" type="text" />
+                  </div>
                 </div>
 
-                <div className="ms-5 my-1">Rate 740/$</div>
+                <div className="ms-5 my-1">Rate {currentRate}/$</div>
 
                 <div className="xchange-input-box mt-1">
                   <div>
@@ -78,7 +82,7 @@ const SectionThree = () => {
                     <span className="ms-2">NGN</span>
                   </div>
 
-                  <div>NGN63,433.43</div>
+                  <div>{currentRate * cryptoInput}</div>
                 </div>
 
                 <div className="mt-3 xchange-text-box mx-auto">

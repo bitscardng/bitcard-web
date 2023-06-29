@@ -10,13 +10,13 @@ const SectionFour = () => {
         <div className="section-four-bg bgc-grey pt-2">
           <div className="row">
             <div className="col text-center">
-              <img width="300" src={Phone} alt="" />
+              <img src={Phone} alt="" />
             </div>
             <div className="col text-center">
-              <img width="300" src={Phone2} alt="" />
+              <img src={Phone2} alt="" />
             </div>
             <div className="col text-center">
-              <img width="300" src={Phone3} alt="" />
+              <img src={Phone3} alt="" />
             </div>
           </div>
         </div>

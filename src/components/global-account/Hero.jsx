@@ -25,7 +25,7 @@ const Hero = () => {
     <div className="py-3 hero">
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col-lg">
             <h1>Global Bank Account</h1>
             <p>Open a US Dollar, Nigerian Naira, Canadian Dollar, United Kingdom Pounds account in less than 1 minutes.</p>
 
@@ -47,7 +47,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="col">
+          <div className="col-lg">
             <div className="hero-exchange-rate-box mt-3 mx-auto">
               <div style={{ background: "#219DFC" }} className="hero-exchange-header">
                 Exchange Rate

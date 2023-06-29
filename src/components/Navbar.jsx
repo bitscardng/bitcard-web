@@ -1,11 +1,17 @@
-import React from "react";
-import Logo from "../assets/images/newLogo.png";
+import { useContext, useState } from "react";
+import Logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import "../assets/scss/navbar.scss";
 import Down from "../assets/images/Rectangle 2.svg";
+import { ModalContext } from "../App";
 
 const Navbar = () => {
-  const [productTab, setProductTab] = React.useState(false);
+  const [productTab, setProductTab] = useState(false);
+  const [modal, setModal] = useContext(ModalContext);
+
+  const showModal = () => {
+    setModal(true);
+  };
 
   const toggleProductTab = () => {
     setProductTab(!productTab);
@@ -14,10 +20,11 @@ const Navbar = () => {
   const removeProductTab = () => {
     setProductTab(false);
   };
+
   return (
     <nav>
       <Link to="">
-        <img width="120" src={Logo} alt="bitcard logo" />
+        <img src={Logo} alt="bitcard logo" />
       </Link>
       <div className="menu-list d-flex">
         <Link to="/blog">Blog</Link>
@@ -58,8 +65,14 @@ const Navbar = () => {
 
         <Link to="/about">About</Link>
       </div>
-      <div className="telegram-link d-flex">Join Our Telegram</div>
-      <div className="download-link d-flex">Download</div>
+      <div className="telegram-link d-flex">
+        <a target="_blank" href="http://t.me/bitscardcomm">
+          Join Our Telegram
+        </a>
+      </div>
+      <div onClick={showModal} className="download-link d-flex">
+        Download
+      </div>
     </nav>
   );
 };

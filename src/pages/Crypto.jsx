@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Blog from "../components/Blog";
 import "../assets/scss/crypto.scss";
 import Hero from "../components/crypto/Hero";
@@ -7,6 +7,9 @@ import SectionThree from "../components/crypto/SectionThree";
 import AppDownloadSection from "../components/AppDownloadSection";
 
 const Crypto = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="crypto-page">
       <Hero />

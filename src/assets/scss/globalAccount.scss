@@ -94,9 +94,30 @@
         padding: 20px;
         border-radius: 20px 0 0 0;
         background-color: #767dff;
-        width: 600px;
+        max-width: 600px;
         font-size: 24px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section-two {
+    img {
+      right: 0 !important;
+      top: 0 !important;
+    }
+  }
+
+  .section-three {
+    .C-T-A {
+      .lady-pic {
+        position: static !important;
+      }
+    }
+
+    .text-box {
+      left: 0 !important;
     }
   }
 }

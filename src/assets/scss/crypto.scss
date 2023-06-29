@@ -21,8 +21,8 @@
 
   .section-two-card {
     margin: auto;
-    height: 250px;
-    width: 270px;
+    // height: 250px;
+    max-width: 270px;
     padding: 10px;
     box-sizing: border-box;
     box-shadow: 6px 6px $black;
@@ -35,9 +35,32 @@
 
   .section-three {
     .graph-card {
-      width: 500px;
-      height: 400px;
+      width: 100%;
+      padding: 20px;
+      min-height: 400px;
       background-color: #21242d;
+
+      .coin-details {
+        color: #fff;
+
+        .coin-price {
+          font-size: 25px;
+        }
+      }
+
+      .apexcharts-yaxis {
+        fill: #fff !important;
+        stroke: #fff !important;
+      }
+
+      .apexcharts-xaxis-texts-g {
+        fill: #fff !important;
+        stroke: #fff !important;
+      }
+
+      .apexcharts-title-text {
+        fill: #fff !important;
+      }
     }
   }
 }

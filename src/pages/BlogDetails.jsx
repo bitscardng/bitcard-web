@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/scss/blog.scss";
 import BlogHero from "../assets/images/blog-hero.png";
 import TwoColumnBlog from "../components/TwoColumnBlog";
@@ -9,8 +9,24 @@ import Insta from "../assets/images/insta.png";
 import Twitter from "../assets/images/twitter.png";
 import Tumblr from "../assets/images/tumblr.png";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const BlogDetails = () => {
+  const { blogpost } = useParams();
+  const [post, setPost] = useState(null);
+  const fetchNews = async () => {
+    try {
+      const res = await axios.get(`http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/news/${blogpost}`);
+      console.log(res);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="blog-page py-5">
       <div className="container  ">

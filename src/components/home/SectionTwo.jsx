@@ -10,17 +10,17 @@ const SectionTwo = () => {
   return (
     <section className="py-5 bgc-grey home-section ">
       <div className="container">
-        <div className="row m-0 align-items-center">
-          <div className="col-7">
-            <div style={{ background: "#6B7CFE" }} className="section-img-box">
+        <div className="row gap-lg-0 gap-5 m-0 align-items-center">
+          <div className="col-lg-7">
+            <div style={{ background: "#6B7CFE" }} className="section-img-box mx-lg-0 mx-auto">
               <img className="float-end" src={Phone} alt="" />
               <img src={Coin3d} alt="bitoin 3d" />
               <img src={Gplay} alt="google play gift card" />
               <img src={Itunes} alt="itunes giftcard" />
             </div>
           </div>
-          <div className="col-5">
-            <div className="home-section-text-area">
+          <div className="col-lg-5">
+            <div className="home-section-text-area mx-lg-0 mx-auto">
               <div>
                 {" "}
                 Trade crypto & Gift card{" "}

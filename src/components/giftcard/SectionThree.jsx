@@ -11,7 +11,7 @@ const SectionThree = () => {
           <h4>3 Benefits</h4>
         </header>
 
-        <div className="row mt-5">
+        <div className="row gap-lg-0 gap-4 mt-5">
           <div className="col">
             <div style={{ background: "#FF6464" }} className="text-card mx-auto">
               <div>Best Gift Card Rates</div>

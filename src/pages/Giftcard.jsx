@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Blog from "../components/Blog";
 import AppDownloadSection from "../components/AppDownloadSection";
 import SectionThree from "../components/giftcard/SectionThree";
@@ -7,6 +7,9 @@ import SectionTwo from "../components/giftcard/SectionTwo";
 import Hero from "../components/giftcard/Hero";
 
 const Giftcard = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="giftcard-page">
       <Hero />

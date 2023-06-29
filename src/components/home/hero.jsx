@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import nig from "../../assets/images/nig.png";
 import usa from "../../assets/images/usa.png";
 import Fone from "../../assets/images/iPhone.png";
@@ -22,11 +22,11 @@ const Hero = () => {
       <div className="hero py-4 mt-3">
         <div className="container">
           <div className="row">
-            <div className="col">
+            <div className="col-lg">
               <h1>Do more Send,spend, bank, and trade gift cards or crypto</h1>
               <div>Neo banking built for you - USD Account, virtual cards, virtual account, gift cards and crypto trading...</div>
 
-              <div className="exchange-rate-box mt-3">
+              <div className="exchange-rate-box mt-3 mx-lg-0 mx-auto">
                 <div className="exchange-rate-box-header">Exchange Rate</div>
                 <div className="input-box-wrapper align-items-center mt-3">
                   <div>
@@ -53,7 +53,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="icon-btn-wrapper">
+              <div className="icon-btn-wrapper mx-lg-0 mx-auto">
                 {/*  */}
                 <div className="icon-btn">
                   <img src={Tether} alt="bitcoin logo" /> <span>730/$</span>
@@ -64,7 +64,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="col">
+            <div className="col-lg">
               <div className="purple-box-wrapper">
                 <img className="phone-img" width="400px" src={Fone} alt="iphone" />
                 <div className="purple-box mx-auto"></div>

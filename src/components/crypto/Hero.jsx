@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Nig from "../../assets/images/nig.png";
 import Bit from "../../assets/images/bit.png";
@@ -6,16 +6,34 @@ import ArrowDown from "../../assets/images/arrow down.png";
 import Phone from "../../assets/images/another-phone.png";
 import BTC from "../../assets/images/BTC 2.png";
 import { ModalContext } from "../../App";
+import axios from "axios";
+
+const url = `http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/crypto-transactions/bitscard-rates`;
 
 const Hero = () => {
   const [modal, setModal] = useContext(ModalContext);
+  const [crypto, setCrypto] = useState(null);
+  const [cryptoErr, setCryptoErr] = useState(null);
   const showModal = () => {
     setModal(true);
   };
+
+  const getCryptoRate = async () => {
+    try {
+      const res = await axios.get(url);
+      setCrypto(res.data.data);
+    } catch (error) {
+      setCryptoErr(error.message);
+    }
+  };
+
+  useEffect(() => {
+    getCryptoRate();
+  }, []);
   return (
     <div className="py-4 hero">
       <div className="container">
-        <div className="row align-items-center">
+        <div className="row gap-lg-0 gap-5 align-items-center">
           <div className="col">
             <h1>Crypto Trade</h1>
             <p>

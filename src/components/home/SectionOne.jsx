@@ -17,15 +17,15 @@ const SectionOne = () => {
       </header>
       <div className="global-acct-bg">
         <div className="container">
-          <div className="row m-0 align-items-center">
-            <div className="col-7">
-              <div className="pink-box">
+          <div className="row gap-lg-0 gap-5 m-0 align-items-center">
+            <div className="col-lg-7">
+              <div className="pink-box mx-lg-0 mx-auto">
                 <img src={Phone} alt="" />
                 <img src={CM} alt="" />
               </div>
             </div>
-            <div className="col-5">
-              <div className="home-section-text-area">
+            <div className="col-lg-5">
+              <div className="home-section-text-area mx-lg-0 mx-auto ">
                 <div>
                   {" "}
                   Open global accounts{" "}
@@ -47,9 +47,9 @@ const SectionOne = () => {
       </div>
 
       <div className="container">
-        <div className="row m-0 align-items-center">
-          <div className="col-5">
-            <div className="home-section-text-area">
+        <div className="row gap-lg-0 gap-5 m-0 align-items-center">
+          <div className="col-lg-5">
+            <div className="home-section-text-area mt-lg-0 mt-5 mx-lg-0 mx-auto">
               <div>
                 {" "}
                 Virtual Mastercard{" "}
@@ -66,7 +66,7 @@ const SectionOne = () => {
               </div>
             </div>
           </div>
-          <div className="col-7">
+          <div className="col-lg-7">
             <div className="virtual-card-img-box mb-5 mt-3 mx-auto">
               <img src={Phone2} alt="phone and wodden hand" />
               <img src={Card} alt="debit card" />

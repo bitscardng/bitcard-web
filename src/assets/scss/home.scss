@@ -283,10 +283,28 @@
       border: 3px solid $black;
       background: $white;
     }
+
+    .crypto-input-box {
+      border: none;
+      text-align: end;
+      color: $black;
+      font-weight: 400;
+    }
   }
 
   .section-four-bg {
     border-radius: 20px 0 0 0;
     box-shadow: 8px 8px $black;
+    img {
+      width: 300px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section-four-bg {
+    img {
+      width: 170px !important;
+    }
   }
 }

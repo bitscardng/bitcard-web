@@ -1,7 +1,8 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import BlogHero from "../../assets/images/blog-hero.png";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const responsive = {
   oneForAll: {
@@ -11,16 +12,43 @@ const responsive = {
 };
 
 const Hero = () => {
+  const [blog, setBlog] = useState(null);
+  const [blogErr, setBlogErr] = useState(null);
+
+  const fetchNews = async () => {
+    try {
+      const { data } = await axios.get("http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/news");
+
+      setBlog(data.data);
+    } catch (error) {
+      setBlogErr(error.message);
+    }
+  };
+  useEffect(() => {
+    fetchNews();
+  }, []);
   return (
     <div className="container py-4">
       <h2>Blog</h2>
       <Carousel responsive={responsive}>
-        <div className="hero">
-          <div style={{ backgroundImage: `url(${BlogHero})` }} className="hero-img"></div>
-          <div className="blog-content">
-            <h4 className="blog-title">Buy and send, How you can make payment using Bitscard in Ghana</h4>
-          </div>
-        </div>
+        {blogErr !== null ? (
+          <div> {blogErr} error occured`</div>
+        ) : blog === null ? (
+          <div>Loading...</div>
+        ) : (
+          blog.map((news) => {
+            return (
+              <Link key={news._id} to={`/blog/${news._id}`}>
+                <div className="hero">
+                  <div style={{ backgroundImage: `url(${news?.image})` }} className="hero-img"></div>
+                  <div className="blog-content">
+                    <h4 className="blog-title">{news.title}</h4>
+                  </div>
+                </div>
+              </Link>
+            );
+          })
+        )}
       </Carousel>
     </div>
   );

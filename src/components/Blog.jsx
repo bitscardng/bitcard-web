@@ -1,47 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Netflix from "../assets/images/Netflix 1.png";
-import Coca from "../assets/images/Always Coca-Cola 1.png";
-import News from "../assets/images/_124643633_gettyimages-1384896168 1.png";
-
-const blogs = [
-  {
-    image: News,
-    title: "The price of bitcoin will get to $50,000",
-  },
-  {
-    image: Netflix,
-    title: "The price of bitcoin will get to $50,000",
-  },
-  {
-    image: Coca,
-    title: "The price of bitcoin will get to $50,000",
-  },
-];
+import axios from "axios";
 
 const Blog = () => {
+  const [blog, setBlog] = useState(null);
+  const [blogErr, setBlogErr] = useState(null);
+
+  const fetchNews = async () => {
+    try {
+      const {
+        data: { data },
+      } = await axios.get(`http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/news?limit=3`);
+      setBlog(data);
+      console.log(data);
+    } catch (error) {
+      setBlogErr(error.message);
+    }
+  };
+  useEffect(() => {
+    fetchNews();
+  }, []);
   return (
     <div className="blog-section">
       <div className="container">
         <div className="text-center mt-4 mb-5">
-          <Link style={{ background: "#FCB721" }} className="btn-without-shadow px-5" to="#">
+          <Link style={{ background: "#FCB721" }} className="btn-without-shadow px-5" to="/blog">
             Blogs
           </Link>
         </div>
 
         <div className="row mb-4">
-          {blogs.map((blog, key) => {
-            return (
-              <div key={key} className="col">
-                <div className="card blog-card mx-auto border-0 shadow">
-                  <img className="card-img-top" src={blog.image} alt="" />
-                  <div style={{ background: "#FCB721" }} className="card-body text-center">
-                    {blog.title}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {blogErr !== null
+            ? `You have encountered an error ${blogErr}`
+            : blog === null
+            ? "loading..."
+            : blog.map((blog) => {
+                return (
+                  <link to={`/blog/${blog._id}`} key={blog._id}>
+                    <div className="col">
+                      <div className="card blog-card mx-auto border-0 shadow">
+                        <img className="card-img-top" src={blog.image} alt="" />
+                        <div style={{ background: "#FCB721" }} className="card-body text-center">
+                          {blog.title}
+                        </div>
+                      </div>
+                    </div>
+                  </link>
+                );
+              })}
         </div>
       </div>
     </div>

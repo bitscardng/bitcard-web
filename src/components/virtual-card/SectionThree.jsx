@@ -11,7 +11,7 @@ const SectionThree = () => {
           <h4>Create your virtual card in 3 simple steps.</h4>
         </header>
 
-        <div className="row mt-5">
+        <div className="row gap-lg-0 gap-3 mt-5">
           <div className="col">
             <div style={{ background: "#FF6464" }} className="text-card mx-auto">
               <div>1</div>
