@@ -36,16 +36,16 @@ const Blog = () => {
             ? "loading..."
             : blog.map((blog) => {
                 return (
-                  <link to={`/blog/${blog._id}`} key={blog._id}>
-                    <div className="col">
+                  <div key={blog._id} className="col">
+                    <Link to={`/blog/${blog._id}`}>
                       <div className="card blog-card mx-auto border-0 shadow">
                         <img className="card-img-top" src={blog.image} alt="" />
                         <div style={{ background: "#FCB721" }} className="card-body text-center">
                           {blog.title}
                         </div>
                       </div>
-                    </div>
-                  </link>
+                    </Link>
+                  </div>
                 );
               })}
         </div>
