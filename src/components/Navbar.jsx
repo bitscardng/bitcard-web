@@ -24,7 +24,14 @@ const Navbar = () => {
   return (
     <nav>
       <Link to="">
-        <img src={Logo} alt="bitcard logo" />
+        <img
+          src={Logo}
+          alt="bitcard logo"
+          style={{
+            maxWidth: "14pc",
+            paddingLeft: "1pc",
+          }}
+        />
       </Link>
       <div className="menu-list d-flex">
         <Link to="/blog">Blog</Link>

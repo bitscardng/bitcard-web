@@ -12,10 +12,19 @@ const SectionTwo = () => {
     <div className="section-two container my-4">
       <div className="row">
         <div className="col-5">
-          <div className="text-header">Get the best deal for your gift cards with us.</div>
-          <p>Over 14000+ international and local gift cards in various categories are available on Bitscard for instant purchase.</p>
+          <div className="text-header" style={{ fontSize: "30px" }}>
+            Get the best deal for your gift cards with us.
+          </div>
+          <p>
+            Over 14000+ international and local gift cards in various categories
+            are available on Bitscard for instant purchase.
+          </p>
           <div className="mb-3 mt-5">
-            <button onClick={showModal} style={{ background: "#FCB721" }} className="btn-without-shadow">
+            <button
+              onClick={showModal}
+              style={{ background: "#FCB721" }}
+              className="btn-without-shadow"
+            >
               Buy gift card
             </button>
           </div>
