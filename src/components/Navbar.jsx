@@ -34,7 +34,11 @@ const Navbar = () => {
             Product
             <img className="ms-2" src={Down} alt="down-icon" />
           </Link>
-          <div className={`product-nav-content shadow-lg ${!productTab && "d-none"}`}>
+          <div
+            className={`product-nav-content shadow-lg ${
+              !productTab && "d-none"
+            }`}
+          >
             <ul className="list-unstyled">
               <li>
                 <Link onClick={removeProductTab} to="/virtual-card">
