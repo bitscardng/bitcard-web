@@ -22,7 +22,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
+    <nav
+      style={{
+        position: "sticky",
+        top: "0",
+        zIndex: "9999",
+        background: "#fff",
+      }}
+    >
       <Link to="">
         <img
           src={Logo}
