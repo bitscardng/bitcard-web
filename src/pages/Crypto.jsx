@@ -19,8 +19,7 @@ const Crypto = () => {
         bgColor="#A875CF"
         contentPosition="left"
         firstContentWord="send &"
-        content="spend, bank & trade
-crypto with ease "
+        content="spend, bank & trade crypto with ease "
       />
       <Blog />
     </div>

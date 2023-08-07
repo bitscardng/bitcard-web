@@ -21,7 +21,7 @@ const Newsletter = () => {
           </div>
           <div className="col-lg">
             <div className="social-media-wrapper">
-              <a target="_blank" href="#">
+              <a target="_blank" href="https://www.t.me/bitscardcomm">
                 <img src={Tumblr} alt="tumblr" />
               </a>
               <a target="_blank" href="https://www.linkedin.com/company/bitscard-co/">

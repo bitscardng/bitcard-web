@@ -6,6 +6,7 @@ import ArrowDown from "../../assets/images/arrow down.png";
 import Phone from "../../assets/images/another-phone.png";
 import BTC from "../../assets/images/BTC 2.png";
 import { ModalContext } from "../../App";
+import nig from "../../assets/images/nig.png";
 import axios from "axios";
 
 const url = `http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/crypto-transactions/bitscard-rates`;
@@ -14,6 +15,8 @@ const Hero = () => {
   const [modal, setModal] = useContext(ModalContext);
   const [crypto, setCrypto] = useState(null);
   const [cryptoErr, setCryptoErr] = useState(null);
+  const [currentRate, setCurrentRate] = useState(768);
+  const [cryptoInput, setCryptoInput] = useState(0);
   const showModal = () => {
     setModal(true);
   };
@@ -30,6 +33,7 @@ const Hero = () => {
   useEffect(() => {
     getCryptoRate();
   }, []);
+
   return (
     <div className="py-4 hero">
       <div className="container">
@@ -37,11 +41,15 @@ const Hero = () => {
           <div className="col">
             <h1>Crypto Trade</h1>
             <p>
-              Buy , sell, receive and send crypto on our platform . You can now buy crypto with your local currency on the Bitscard network either
+              Buy , sell, receive and send crypto on our platform . You can now
+              buy crypto with your local currency on the Bitscard network either
               from us or using our P2P feature.{" "}
             </p>
             <div className="hero-exchange-rate-box mt-3">
-              <div style={{ background: "#767DFF" }} className="hero-exchange-header">
+              <div
+                style={{ background: "#767DFF" }}
+                className="hero-exchange-header"
+              >
                 Crypto Rate
               </div>
               <div className="d-flex justify-content-center mt-2">
@@ -56,10 +64,17 @@ const Hero = () => {
                     <span className="ms-2">BTC</span>
                     <img className="ms-2" width="10" src={ArrowDown} alt="" />
                   </div>
-                  <div>$74</div>
+                  <div>
+                    <input
+                      onChange={(e) => setCryptoInput(e.target.value)}
+                      value={cryptoInput}
+                      className="crypto-input-box"
+                      type="text"
+                    />
+                  </div>
                 </div>
 
-                <div className="ms-5 my-1">Rate 740/$</div>
+                <div className="ms-5 my-1">Rate {currentRate}/$</div>
 
                 <div className="xchange-input-box">
                   <div className="d-flex align-items-center">
@@ -67,19 +82,27 @@ const Hero = () => {
                     <span className="ms-2">NGN</span>
                     <img className="ms-2" width="10" src={ArrowDown} alt="" />
                   </div>
-                  <div>74,000</div>
+                  <div>{currentRate * cryptoInput}</div>
                 </div>
               </div>
 
               <div className="my-4 text-center">
-                <button onClick={showModal} style={{ background: "#F7931A" }} className="btn-without-shadow">
+                <button
+                  onClick={showModal}
+                  style={{ background: "#F7931A" }}
+                  className="btn-without-shadow"
+                >
                   Trade now
                 </button>
               </div>
             </div>
           </div>
+
           <div className="col">
-            <div style={{ background: "#885df5" }} className="hero-color-box mt-5">
+            <div
+              style={{ background: "#885df5" }}
+              className="hero-color-box mt-5"
+            >
               <img src={Phone} alt="phone" />
               <img src={BTC} alt="bitcoin" />
             </div>

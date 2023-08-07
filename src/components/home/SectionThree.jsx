@@ -38,6 +38,7 @@ const SectionThree = () => {
             </div>
             <div className="col-lg">
               <div className="app-btn-wrapper mx-auto mt-0">
+                
                 <div className="app-btn">
                   <img src={playStoreLogo} alt="google play logo" />
                   <span>Google play</span>
