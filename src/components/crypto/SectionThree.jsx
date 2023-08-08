@@ -7,10 +7,10 @@ const SectionThree = () => {
       <div className="container">
         <div className="row gap-lg-0 gap-5">
           <div className="col-lg">
-            {/* <CryptoGraph crypto="tether" /> */}
+            <CryptoGraph crypto="tether" />
           </div>
           <div className="col-lg">
-            {/* <CryptoGraph crypto="bitcoin" /> */}
+            <CryptoGraph crypto="bitcoin" />
           </div>
         </div>
       </div>

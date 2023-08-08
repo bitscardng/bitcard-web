@@ -14,9 +14,14 @@ const CryptoGraph = ({ crypto }) => {
   };
 
   const fetchChartData = async () => {
-    let response = await axios.get(`https://api.coingecko.com/api/v3/coins/${crypto}/ohlc?vs_currency=usd&days=90`).catch(function (error) {
-      console.log(error.toJSON());
-    });
+    let response = await axios
+      .get(
+        `https://api.coingecko.com/api/v3/coins/${crypto}/ohlc?vs_currency=usd&days=90`
+      )
+
+      .catch(function (error) {
+        console.log(error.toJSON());
+      });
 
     setOptions({
       chart: {
@@ -37,17 +42,19 @@ const CryptoGraph = ({ crypto }) => {
       },
     });
 
-    setSeries([{ data: response.data }]);
+    setSeries([{ data: response?.data }]);
   };
 
   const fetchCoin = async () => {
     let response = await axios
-      .get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${crypto}&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
+      .get(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${crypto}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
+      )
       .catch(function (error) {
-        console.log(error.toJSON());
+        // console.log(error.toJSON());
       });
-    setCoin(response.data[0]);
-    console.log(response.data[0]);
+    setCoin(response?.data[0]);
+    // console.log(response.data[0]);
   };
 
   useEffect(() => {
@@ -70,9 +77,16 @@ const CryptoGraph = ({ crypto }) => {
               </div>
             </div>
 
-            <div className="coin-price">{`${coin?.current_price?.toLocaleString() ?? "unavailable"} $`}</div>
+            <div className="coin-price">{`${
+              coin?.current_price?.toLocaleString() ?? "unavailable"
+            } $`}</div>
           </div>
-          <Chart options={options} series={series} type="candlestick" height="350" />
+          <Chart
+            options={options}
+            series={series}
+            type="candlestick"
+            height="350"
+          />
           <div className="d-flex justify-content-center mt-2">
             <button onClick={showModal} className="buy-sell-btn buy-btn-bg">
               Buy
