@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useLayoutEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
@@ -66,6 +66,32 @@ const router = createBrowserRouter([
 
 export const ModalContext = createContext();
 function App() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  const handleResize = () => {
+    console.log(window.innerWidth);
+    if (!window.innerWidth > 700) {
+      window.location.replace("https://m.bitscard.app/");
+    }
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+
+  useLayoutEffect(() => {
+    console.log(windowSize);
+    window.addEventListener("resize", handleResize);
+    if (windowSize.width <= 700) {
+      window.location.replace("https://m.bitscard.app/");
+    }
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [windowSize.width]);
   const [downloadModal, setDownloadModal] = useState(false);
   return (
     <ModalContext.Provider value={[downloadModal, setDownloadModal]}>
