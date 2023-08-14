@@ -92,9 +92,15 @@ function App() {
   }, []);
   const [downloadModal, setDownloadModal] = useState(false);
   return (
-    <ModalContext.Provider value={[downloadModal, setDownloadModal]}>
-      <RouterProvider router={router} />
-    </ModalContext.Provider>
+    <>
+      {windowSize.width <= 700 ? (
+        <div></div>
+      ) : (
+        <ModalContext.Provider value={[downloadModal, setDownloadModal]}>
+          <RouterProvider router={router} />
+        </ModalContext.Provider>
+      )}
+    </>
   );
 }
 

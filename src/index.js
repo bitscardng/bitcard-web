@@ -9,7 +9,7 @@ if (window.innerWidth <= 700) {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    {window.innerWidth <= 700 ? <div></div> : <App />}
   </React.StrictMode>
 );
 
