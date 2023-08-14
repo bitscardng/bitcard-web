@@ -82,6 +82,9 @@ function App() {
   };
 
   useLayoutEffect(() => {
+    if (window.innerWidth <= 700) {
+      window.location.replace("https://m.bitscard.app/");
+    }
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
