@@ -72,8 +72,7 @@ function App() {
   });
 
   const handleResize = () => {
-    console.log(window.innerWidth);
-    if (!window.innerWidth > 700) {
+    if (window.innerWidth <= 700) {
       window.location.replace("https://m.bitscard.app/");
     }
     setWindowSize({
@@ -83,15 +82,11 @@ function App() {
   };
 
   useLayoutEffect(() => {
-    console.log(windowSize);
     window.addEventListener("resize", handleResize);
-    if (windowSize.width <= 700) {
-      window.location.replace("https://m.bitscard.app/");
-    }
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [windowSize.width]);
+  }, []);
   const [downloadModal, setDownloadModal] = useState(false);
   return (
     <ModalContext.Provider value={[downloadModal, setDownloadModal]}>
