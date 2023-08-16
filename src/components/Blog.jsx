@@ -42,9 +42,12 @@ const Blog = () => {
             ? "loading..."
             : blog.map((blog) => {
                 return (
-                  <div key={blog._id} className="co" style={{ display:"flex", align:" iten" }}>
+                  <div key={blog._id} className="col">
                     <Link to={`/blog/${blog._id}`}>
-                      <div className="card blog-card mx-auto border-0 shadow">
+                      <div
+                        className="card blog-card mx-auto border-0 shadow"
+                        style={{ minHeight: "100%" }}
+                      >
                         <img className="card-img-top" src={blog.image} alt="" />
                         <div
                           style={{ background: "#FCB721" }}
