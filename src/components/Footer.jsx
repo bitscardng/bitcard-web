@@ -49,6 +49,14 @@ const Footer = () => {
               <div>
                 <Link to="/faq">FAQ</Link>
               </div>
+              <div>
+                <a
+                  target="_blank"
+                  href="https://bitscard.notion.site/Legal-6bdba87f697a4366b05f473ae9be2ae8?pvs=4"
+                >
+                  Legal
+                </a>
+              </div>
             </div>
           </div>
           <div className="col-3">
@@ -64,9 +72,6 @@ const Footer = () => {
               </div>
               <div>
                 <Link to="#">18 Admiralty way lekki, Lagos</Link>
-              </div>
-              <div>
-                <Link to="#">Legal</Link>
               </div>
             </div>
           </div>
