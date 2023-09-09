@@ -7,10 +7,6 @@ jobs:
       - image: cimg/node:19.8.1
     steps:
       - checkout
-
-      - run:
-          name: List all folder
-          command: ls
       - run:
           name: Copy build folder
           command: cp -r build /tmp/build
@@ -44,11 +40,14 @@ jobs:
           name: change mood
           command: |
             chmod 600 /tmp/aws-ec2.pem
+      - run:
+          name: List all folder
+          command: ls
             
       - run:
           name: Transfer files and deploy
           command: |
-            scp -o StrictHostKeyChecking=no -i /tmp/aws-ec2.pem -r /tmp/build/* ubuntu@18.233.68.37:~/var/www/html/
+            scp -o StrictHostKeyChecking=no -i /tmp/aws-ec2.pem -r build/* ubuntu@18.233.68.37:~/var/www/html/
           environment:
             SSH_PRIVATE_KEY: $SSH_PRIVATE_KEY
 
