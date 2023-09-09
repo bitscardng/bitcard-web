@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Transfer files and deploy
           command: |
-            scp -o StrictHostKeyChecking=no -i /tmp/aws-ec2.pem -r build/* ubuntu@18.233.68.37:~/var/www/html/
+            scp -o StrictHostKeyChecking=no -i /tmp/aws-ec2.pem -r build/* ubuntu@18.233.68.37:/var/www/html/
           environment:
             SSH_PRIVATE_KEY: $SSH_PRIVATE_KEY
 
