@@ -11,12 +11,11 @@ jobs:
           name: Clone GitHub repository
           command: git clone https://github.com/bitscardng/bitcard-web.git
       - run:
-          name: Make build folder
-          command: |
-            mkdir -p /tmp/build
-      - run:
           name: Copy build folder
-          command: cp -r bitcard-web/build/* /tmp/build
+          command: cp -r bitcard-web/build /tmp/build
+      - run:
+          name: List all folder
+          command: ls
       - persist_to_workspace:
           root: .
           paths:
