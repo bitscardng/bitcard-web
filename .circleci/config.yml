@@ -44,12 +44,6 @@ jobs:
           name: change mood
           command: |
             chmod 600 /tmp/aws-ec2.pem
-
-      - run:
-          name: Load SSH Key
-          command: |
-            eval "$(ssh-agent -s)"
-            ssh-add /tmp/aws-ec2.pem
             
       - run:
           name: Transfer files and deploy
