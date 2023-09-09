@@ -7,15 +7,14 @@ jobs:
       - image: cimg/node:19.8.1
     steps:
       - checkout
-      - run:
-          name: Clone GitHub repository
-          command: git clone https://github.com/bitscardng/bitcard-web.git
-      - run:
-          name: Copy build folder
-          command: cp -r bitcard-web/build /tmp/build
+
       - run:
           name: List all folder
           command: ls
+      - run:
+          name: Copy build folder
+          command: cp -r /build /tmp/build
+          
       - persist_to_workspace:
           root: .
           paths:
@@ -35,17 +34,19 @@ jobs:
           name: install openssh
           command: |
             apt-get install -y openssh-client
-      - run:
-          name: Load SSH Key
-          command: |
-            eval "$(ssh-agent -s)"
-            ssh-add /tmp/aws-ec2.pem
+
 
 
       - run:
           name: copy keys
           command: |
             echo "$SSH_PRIVATE_KEY" | base64 --decode > /tmp/aws-ec2.pem
+      - run:
+          name: Load SSH Key
+          command: |
+            eval "$(ssh-agent -s)"
+            ssh-add /tmp/aws-ec2.pem
+            
       - run:
           name: change mood
           command: |
