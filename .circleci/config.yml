@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  slack: circleci/slack@4.9.3
 jobs:
   build:
     docker:
@@ -6,16 +8,22 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Copy build folder from GitHub
-          command: |
-            mkdir -p /tmp/build            
-            cp -r https://github.com/bitscardng/bitcard-web/tree/master/src/build/*  /tmp/build
+          name: Clone GitHub repository
+          command: git clone https://github.com/bitscardng/bitcard-web.git
+      - run:
+          name: Copy build folder
+          command: cp -r bitcard-web/build/* /tmp/build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - /tmp/build
+
   deploy:
     docker:
       - image: ubuntu:latest
     steps:
       - attach_workspace:
-          at: /workspace
+          at: .
       - run:
           name: apt get update
           command: |
