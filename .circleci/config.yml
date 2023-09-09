@@ -13,7 +13,7 @@ jobs:
           command: ls
       - run:
           name: Copy build folder
-          command: cp -r /build /tmp/build
+          command: cp -r build /tmp/build
           
       - persist_to_workspace:
           root: .
