@@ -34,23 +34,23 @@ jobs:
           name: install openssh
           command: |
             apt-get install -y openssh-client
-
-
-
+            
       - run:
           name: copy keys
           command: |
             echo "$SSH_PRIVATE_KEY" | base64 --decode > /tmp/aws-ec2.pem
+            
+      - run:
+          name: change mood
+          command: |
+            chmod 600 /tmp/aws-ec2.pem
+
       - run:
           name: Load SSH Key
           command: |
             eval "$(ssh-agent -s)"
             ssh-add /tmp/aws-ec2.pem
             
-      - run:
-          name: change mood
-          command: |
-            chmod 600 /tmp/aws-ec2.pem
       - run:
           name: Transfer files and deploy
           command: |
