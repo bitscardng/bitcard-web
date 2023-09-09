@@ -40,9 +40,6 @@ jobs:
           name: change mood
           command: |
             chmod 600 /tmp/aws-ec2.pem
-      - run:
-          name: List all folder
-          command: ls
             
       - run:
           name: Transfer files and deploy
