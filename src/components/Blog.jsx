@@ -10,9 +10,7 @@ const Blog = () => {
     try {
       const {
         data: { data },
-      } = await axios.get(
-        `http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/news?limit=3`
-      );
+      } = await axios.get(`https://api.bitscard.app/api/v1/news?limit=3`);
       setBlog(data);
       console.log(data);
     } catch (error) {

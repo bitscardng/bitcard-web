@@ -5,13 +5,19 @@ import AppDownloadSection from "../components/AppDownloadSection";
 import ChatBot from "../assets/images/robot 3.png";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import axios from "axios";
+import DOMPurify from "dompurify";
+
+function sanitizeHtml(html) {
+  const cleanHtml = DOMPurify.sanitize(html);
+  return cleanHtml;
+}
 
 const FAQ = () => {
   const [faq, setFaq] = useState(null);
   const [faqErr, setFaqErr] = useState(null);
   const fetchFAQ = async () => {
     try {
-      const res = await axios.get("http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/faq");
+      const res = await axios.get("https://api.bitscard.app/api/v1/faq");
       setFaq(res.data.data);
     } catch (error) {
       setFaqErr(error.message);
@@ -33,7 +39,10 @@ const FAQ = () => {
               ? "loading..."
               : faq.map((data, key) => {
                   return (
-                    <div key={data._id} className="accordion-item border-0 bg-transparent">
+                    <div
+                      key={data._id}
+                      className="accordion-item border-0 bg-transparent"
+                    >
                       <h2 className="accordion-header">
                         <button
                           className="accordion-button bg-transparent"
@@ -46,8 +55,17 @@ const FAQ = () => {
                           <strong>{data.title}</strong>
                         </button>
                       </h2>
-                      <div id={`collapse${key}`} className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div className="accordion-body">{data.content}</div>
+                      <div
+                        id={`collapse${key}`}
+                        className="accordion-collapse collapse show"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div
+                          className="accordion-body"
+                          dangerouslySetInnerHTML={{
+                            __html: sanitizeHtml(data?.content),
+                          }}
+                        />
                       </div>
                     </div>
                   );
@@ -58,7 +76,12 @@ const FAQ = () => {
           <img width="100" src={ChatBot} alt="chat-bot" />
         </div>
       </div>
-      <AppDownloadSection bgColor="#A875CF" content="spend, bank & trade crypto with ease " firstContentWord="send &" contentPosition="left" />
+      <AppDownloadSection
+        bgColor="#A875CF"
+        content="spend, bank & trade crypto with ease "
+        firstContentWord="send &"
+        contentPosition="left"
+      />
       <Blog />
     </>
   );

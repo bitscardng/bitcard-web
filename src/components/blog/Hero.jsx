@@ -17,7 +17,7 @@ const Hero = () => {
 
   const fetchNews = async () => {
     try {
-      const { data } = await axios.get("http://ec2-3-231-77-121.compute-1.amazonaws.com:3000/api/v1/news");
+      const { data } = await axios.get("https://api.bitscard.app/api/v1/news");
 
       setBlog(data.data);
     } catch (error) {
@@ -40,7 +40,10 @@ const Hero = () => {
             return (
               <Link key={news._id} to={`/blog/${news._id}`}>
                 <div className="hero">
-                  <div style={{ backgroundImage: `url(${news?.image})` }} className="hero-img"></div>
+                  <div
+                    style={{ backgroundImage: `url(${news?.image})` }}
+                    className="hero-img"
+                  ></div>
                   <div className="blog-content">
                     <h4 className="blog-title">{news.title}</h4>
                   </div>
