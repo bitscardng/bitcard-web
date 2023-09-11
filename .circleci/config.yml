@@ -1,0 +1,57 @@
+version: 2.1
+orbs:
+  slack: circleci/slack@4.9.3
+jobs:
+  build:
+    docker:
+      - image: cimg/node:19.8.1
+    steps:
+      - checkout
+      - run:
+          name: Copy build folder
+          command: cp -r build /tmp/build
+          
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
+  deploy:
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: apt get update
+          command: |
+            apt-get update
+      - run:
+          name: install openssh
+          command: |
+            apt-get install -y openssh-client
+            
+      - run:
+          name: copy keys
+          command: |
+            echo "$SSH_PRIVATE_KEY" | base64 --decode > /tmp/aws-ec2.pem
+            
+      - run:
+          name: change mood
+          command: |
+            chmod 600 /tmp/aws-ec2.pem
+            
+      - run:
+          name: Transfer files and deploy
+          command: |
+            scp -o StrictHostKeyChecking=no -i /tmp/aws-ec2.pem -r build/* ubuntu@18.233.68.37:/var/www/html/
+          environment:
+            SSH_PRIVATE_KEY: $SSH_PRIVATE_KEY
+
+workflows:
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
