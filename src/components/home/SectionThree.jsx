@@ -39,10 +39,10 @@ const SectionThree = () => {
             <div className="col-lg">
               <div className="app-btn-wrapper mx-auto mt-0">
                 
-                <div className="app-btn">
+                <a href="https://play.google.com/store/apps/details?id=com.production.bitscard" className="app-btn">
                   <img src={playStoreLogo} alt="google play logo" />
                   <span>Google play</span>
-                </div>
+                </a>
 
                 <div className="app-btn">
                   <img src={AppleLogo} alt="apple logo" />

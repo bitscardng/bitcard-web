@@ -24,7 +24,10 @@ const Hero = () => {
           <div className="row">
             <div className="col-lg">
               <h1>Do more Send,spend, bank, and trade gift cards or crypto</h1>
-              <div>Neo banking built for you - USD Account, virtual cards, virtual account, gift cards and crypto trading...</div>
+              <div>
+                Neo banking built for you - USD Account, virtual cards, virtual
+                account, gift cards and crypto trading...
+              </div>
 
               <div className="exchange-rate-box mt-3 mx-lg-0 mx-auto">
                 <div className="exchange-rate-box-header">Exchange Rate</div>
@@ -47,7 +50,10 @@ const Hero = () => {
                   <div>100.43</div>
                 </div>
                 <div className="my-4 text-center">
-                  <button onClick={showModal} className="btn-without-shadow bgc-green">
+                  <button
+                    onClick={showModal}
+                    className="btn-without-shadow bgc-green"
+                  >
                     Get started
                   </button>
                 </div>
@@ -66,15 +72,23 @@ const Hero = () => {
             </div>
             <div className="col-lg">
               <div className="purple-box-wrapper">
-                <img className="phone-img" width="400px" src={Fone} alt="iphone" />
+                <img
+                  className="phone-img"
+                  width="400px"
+                  src={Fone}
+                  alt="iphone"
+                />
                 <div className="purple-box mx-auto"></div>
               </div>
 
               <div className="app-btn-wrapper mx-auto">
-                <div className="app-btn">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.production.bitscard"
+                  className="app-btn"
+                >
                   <img src={playStoreLogo} alt="google play logo" />
                   <span>Google play</span>
-                </div>
+                </a>
 
                 <div className="app-btn">
                   <img src={AppleLogo} alt="apple logo" />
@@ -94,7 +108,10 @@ const Hero = () => {
           <img src={Mastercard} alt="" />
         </span>
 
-        <div style={{ backgroundImage: `url(${Bitnob})` }} className="hero-footer-box"></div>
+        <div
+          style={{ backgroundImage: `url(${Bitnob})` }}
+          className="hero-footer-box"
+        ></div>
       </div>
     </>
   );

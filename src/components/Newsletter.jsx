@@ -53,7 +53,7 @@ const Newsletter = () => {
             <div className="app-btn-wrapper ms-auto">
               <a
                 target="_blank"
-                href="https://play.google.com/store/apps/details?id=com.val.bitscard"
+                href="https://play.google.com/store/apps/details?id=com.production.bitscard"
               >
                 <div className="app-btn">
                   <img src={playStoreLogo} alt="google play logo" />

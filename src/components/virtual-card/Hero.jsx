@@ -20,8 +20,9 @@ const Hero = () => {
           <div className="col-lg">
             <h1>Virtual Master Card</h1>
             <p>
-              Get all the benefits of the Bitscard mastercard - spend online, in-store and abroad while saving on currency conversion fees, with the
-              extra layer of security of the Bitscard digital card.
+              Get all the benefits of the Bitscard mastercard - spend online,
+              in-store and abroad while saving on currency conversion fees, with
+              the extra layer of security of the Bitscard digital card.
             </p>
 
             <div className="hero-exchange-rate-box mt-3">
@@ -54,23 +55,32 @@ const Hero = () => {
               </div>
 
               <div className="my-4 text-center">
-                <button onClick={showModal} className="btn-without-shadow bgc-green">
+                <button
+                  onClick={showModal}
+                  className="btn-without-shadow bgc-green"
+                >
                   Get started
                 </button>
               </div>
             </div>
           </div>
           <div className="col-lg">
-            <div style={{ background: "#FCB721" }} className="hero-color-box mt-5">
+            <div
+              style={{ background: "#FCB721" }}
+              className="hero-color-box mt-5"
+            >
               <img src={Card1} alt="card" />
               <img src={Card2} alt="card" />
             </div>
 
             <div className="app-btn-wrapper mx-auto">
-              <div className="app-btn">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.production.bitscard"
+                className="app-btn"
+              >
                 <img src={playStoreLogo} alt="google play logo" />
                 <span>Google play</span>
-              </div>
+              </a>
 
               <div className="app-btn">
                 <img src={AppleLogo} alt="apple logo" />
