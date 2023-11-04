@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Coin3d from "../../assets/images/3d-plastilina-three-quarter-view-of-a-bitcoin-emblem 1.png";
 import Mastercard from "../../assets/images/Group 5.png";
 import Upwork from "../../assets/images/upwork.png";
@@ -7,11 +7,36 @@ import AppleLogo from "../../assets/images/apple.png";
 import playStoreLogo from "../../assets/images/Inner Plugin Iframe.png";
 import Bit from "../../assets/images/bit.png";
 import nig from "../../assets/images/nig.png";
+import axios from "axios";
 import { ModalContext } from "../../App";
 
 const SectionThree = () => {
+  const [data, setData] = useState({});
+  const [btcPrice, setBtcPrice] = useState({});
+  const [currentRate, setCurrentRate] = useState();
+  useEffect(() => {
+    axios
+      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
+      .then((res) => {
+        setData(res?.data?.data);
+        setCurrentRate(res?.data?.data?.btc?.buy);
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
+    axios
+      .get(
+        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ctether&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true&precision=full"
+      )
+      .then((res) => {
+        setBtcPrice(res?.data?.bitcoin);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   const [modal, setModal] = useContext(ModalContext);
-  const [currentRate, setCurrentRate] = useState(768);
   const [cryptoInput, setCryptoInput] = useState(0);
   const showModal = () => {
     setModal(true);
@@ -26,20 +51,30 @@ const SectionThree = () => {
                 <img src={Mastercard} alt="" />
                 <img src={Coin3d} alt="" />
                 <div className="head">Virtual card funding</div>
-                <div>You can now create and fund your virtual mastercard with crypto at zero cost.</div>
+                <div>
+                  You can now create and fund your virtual mastercard with
+                  crypto at zero cost.
+                </div>
               </div>
 
               <div className="card-two mx-lg-0 mx-auto">
                 <img src={Upwork} alt="upwork logo" />
                 <img src={Freelancer} alt="freelancer logo" />
-                <div className="head">Receive payment from foreign employers</div>
-                <div>Freelancer, remote worker or corporate employee? Get paid fast and securely!</div>
+                <div className="head">
+                  Receive payment from foreign employers
+                </div>
+                <div>
+                  Freelancer, remote worker or corporate employee? Get paid fast
+                  and securely!
+                </div>
               </div>
             </div>
             <div className="col-lg">
               <div className="app-btn-wrapper mx-auto mt-0">
-                
-                <a href="https://play.google.com/store/apps/details?id=com.production.bitscard" className="app-btn">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.production.bitscard"
+                  className="app-btn"
+                >
                   <img src={playStoreLogo} alt="google play logo" />
                   <span>Google play</span>
                 </a>
@@ -50,19 +85,61 @@ const SectionThree = () => {
                 </div>
               </div>
 
-              <div className="section-three-xchange-box mt-3 mx-auto">
+              <div id="id" className="section-three-xchange-box mt-3 mx-auto">
                 <div className="header">
                   <div style={{ background: "#F7931A" }}>Exchange Rate</div>
                   <div style={{ background: "#767DFF" }}>Crypto Rate</div>
                 </div>
-                <div className="d-flex justify-content-center mt-2">
-                  <button style={{ background: "#EB6A98" }} className="buy-sell-btn">
+                {/* <div className="d-flex justify-content-center mt-2">
+                  <button
+                    style={{ background: "#EB6A98" }}
+                    className="buy-sell-btn"
+                  >
                     Buy
                   </button>
-                  <button style={{ background: "#18BBFE" }} className="buy-sell-btn">
+                  <button
+                    style={{ background: "#18BBFE" }}
+                    className="buy-sell-btn"
+                  >
                     Sell
                   </button>
-                </div>
+                </div> */}
+                <ul
+                  class="nav nav-pills mb-3 mt-2 m-auto w-full d-flex justify-content-center"
+                  id="pills-tab"
+                  role="tablist"
+                >
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="pills-home-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-home"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-home"
+                      aria-selected="true"
+                      onClick={() => setCurrentRate(data?.btc?.buy)}
+                    >
+                      Buy
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="pills-profile-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-profile"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-profile"
+                      aria-selected="false"
+                      onClick={() => setCurrentRate(data?.btc?.sell)}
+                    >
+                      Sell
+                    </button>
+                  </li>
+                </ul>
 
                 <div className="xchange-input-box mt-1">
                   <div>
@@ -71,7 +148,12 @@ const SectionThree = () => {
                   </div>
 
                   <div>
-                    <input onChange={(e) => setCryptoInput(e.target.value)} value={cryptoInput} className="crypto-input-box" type="text" />
+                    <input
+                      onChange={(e) => setCryptoInput(e.target.value)}
+                      value={cryptoInput}
+                      className="crypto-input-box"
+                      type="text"
+                    />
                   </div>
                 </div>
 
@@ -83,15 +165,22 @@ const SectionThree = () => {
                     <span className="ms-2">NGN</span>
                   </div>
 
-                  <div>{currentRate * cryptoInput}</div>
+                  <div>{currentRate * cryptoInput * Number(btcPrice?.usd)}</div>
                 </div>
 
                 <div className="mt-3 xchange-text-box mx-auto">
-                  Exchange rates are volatile right now, so we can't guarantee this rate. We'll use the rate that's live when we receive your money.
+                  Exchange rates are volatile right now, so we can't guarantee
+                  this rate. We'll use the rate that's live when we receive your
+                  money.
                 </div>
 
                 <div className="my-4 text-center">
-                  <button onClick={showModal} style={{ background: "#47A348" }} to="#" className="btn-without-shadow">
+                  <button
+                    onClick={showModal}
+                    style={{ background: "#47A348" }}
+                    to="#"
+                    className="btn-without-shadow"
+                  >
                     Get started
                   </button>
                 </div>

@@ -11,8 +11,23 @@ import Mastercard from "../../assets/images/mastercard.png";
 import Bitnob from "../../assets/images/bitnob.png";
 import ArrowDown from "../../assets/images/arrow down.png";
 import { ModalContext } from "../../App";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [data, setData] = useState({});
+  const [currentRate, setCurrentRate] = useState();
+  useEffect(() => {
+    axios
+      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
+      .then((res) => {
+        setData(res?.data?.data);
+        setCurrentRate(res?.data?.data?.btc?.buy);
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
+  });
   const [modal, setModal] = useContext(ModalContext);
   const showModal = () => {
     setModal(true);
@@ -31,6 +46,42 @@ const Hero = () => {
 
               <div className="exchange-rate-box mt-3 mx-lg-0 mx-auto">
                 <div className="exchange-rate-box-header">Exchange Rate</div>
+                <ul
+                  class="nav nav-pills mb-3 mt-2 m-auto w-full d-flex justify-content-center"
+                  id="pills-tab"
+                  role="tablist"
+                >
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="pills-home-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-home"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-home"
+                      aria-selected="true"
+                      onClick={() => setCurrentRate(data?.btc?.buy)}
+                    >
+                      Buy
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="pills-profile-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-profile"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-profile"
+                      aria-selected="false"
+                      onClick={() => setCurrentRate(data?.btc?.sell)}
+                    >
+                      Sell
+                    </button>
+                  </li>
+                </ul>
                 <div className="input-box-wrapper align-items-center mt-3">
                   <div>
                     <img width="30px" src={nig} alt="nigeria flag" />
@@ -39,7 +90,7 @@ const Hero = () => {
                   </div>
                   <div>74,000</div>
                 </div>
-                <div className="ms-5 my-1">Rate 740/$</div>
+                <div className="ms-5 my-1">Rate {currentRate}/$</div>
 
                 <div className="input-box-wrapper align-items-center">
                   <div>
