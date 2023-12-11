@@ -23,7 +23,7 @@ const BlogDetails = () => {
   const fetchNews = async () => {
     try {
       const res = await axios.get(
-        `https://api.bitscard.app/api/v1/news/${blogpost}`
+        `https://devadmin.bitscard.app/api/v1/news/${blogpost}`
       );
       setPost(res?.data?.data);
     } catch (error) {

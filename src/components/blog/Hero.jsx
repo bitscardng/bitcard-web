@@ -17,7 +17,9 @@ const Hero = () => {
 
   const fetchNews = async () => {
     try {
-      const { data } = await axios.get("https://api.bitscard.app/api/v1/news");
+      const { data } = await axios.get(
+        "https://devadmin.bitscard.app/api/v1/news"
+      );
 
       setBlog(data.data);
     } catch (error) {

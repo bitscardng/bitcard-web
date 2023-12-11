@@ -9,7 +9,7 @@ import { ModalContext } from "../../App";
 import nig from "../../assets/images/nig.png";
 import axios from "axios";
 
-const url = `https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates`;
+const url = `https://devadmin.bitscard.app/api/v1/crypto-transactions/bitscard-rates`;
 
 const Hero = () => {
   const [modal, setModal] = useContext(ModalContext);

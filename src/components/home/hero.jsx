@@ -19,7 +19,9 @@ const Hero = () => {
   const [currentRate, setCurrentRate] = useState();
   useEffect(() => {
     axios
-      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
+      .get(
+        "https://devadmin.bitscard.app/api/v1/crypto-transactions/bitscard-rates"
+      )
       .then((res) => {
         setData(res?.data?.data);
         setCurrentRate(res?.data?.data?.btc?.buy);
