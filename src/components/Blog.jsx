@@ -10,7 +10,7 @@ const Blog = () => {
     try {
       const {
         data: { data },
-      } = await axios.get(`https://devadmin.bitscard.app/api/v1/news?limit=3`);
+      } = await axios.get(`https://api.bitscard.app/api/v1/news?limit=3`);
       setBlog(data);
       console.log(data);
     } catch (error) {

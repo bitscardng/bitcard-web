@@ -20,7 +20,7 @@ const Hero = () => {
   useEffect(() => {
     axios
       .get(
-        "https://devadmin.bitscard.app/api/v1/crypto-transactions/bitscard-rates"
+        "https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates"
       )
       .then((res) => {
         setData(res?.data?.data);
