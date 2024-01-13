@@ -19,9 +19,7 @@ const Hero = () => {
   const [currentRate, setCurrentRate] = useState();
   useEffect(() => {
     axios
-      .get(
-        "https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates"
-      )
+      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
       .then((res) => {
         setData(res?.data?.data);
         setCurrentRate(res?.data?.data?.btc?.buy);
@@ -29,7 +27,7 @@ const Hero = () => {
       .catch((err) => {
         // console.log(err);
       });
-  });
+  }, []);
   const [modal, setModal] = useContext(ModalContext);
   const showModal = () => {
     setModal(true);
