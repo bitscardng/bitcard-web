@@ -12,7 +12,8 @@ import { ModalContext } from "../../App";
 
 const SectionThree = () => {
   const [data, setData] = useState({});
-  const [btcPrice, setBtcPrice] = useState({});
+  const [btcPrice, setBtcPrice] = useState(0);
+  const [nairaPrice, setNairaPrice] = useState(0);
   const [currentRate, setCurrentRate] = useState();
   useEffect(() => {
     axios
@@ -24,17 +25,16 @@ const SectionThree = () => {
       .catch((err) => {
         // console.log(err);
       });
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ctether&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true&precision=full"
-      )
-      .then((res) => {
-        setBtcPrice(res?.data?.bitcoin);
-      })
-      .catch((err) => {});
+    // axios
+    //   .get(
+    //     "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Ctether&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true&precision=full"
+    //   )
+    //   .then((res) => {
+    //     setBtcPrice(res?.data?.bitcoin);
+    //   })
+    //   .catch((err) => {});
   }, []);
   const [modal, setModal] = useContext(ModalContext);
-  const [cryptoInput, setCryptoInput] = useState(0);
   const showModal = () => {
     setModal(true);
   };
@@ -116,7 +116,11 @@ const SectionThree = () => {
                       role="tab"
                       aria-controls="pills-home"
                       aria-selected="true"
-                      onClick={() => setCurrentRate(data?.btc?.buy)}
+                      onClick={() => {
+                        setCurrentRate(data?.btc?.buy);
+                        setBtcPrice(0);
+                        setNairaPrice(0);
+                      }}
                     >
                       Buy
                     </button>
@@ -131,7 +135,11 @@ const SectionThree = () => {
                       role="tab"
                       aria-controls="pills-profile"
                       aria-selected="false"
-                      onClick={() => setCurrentRate(data?.btc?.sell)}
+                      onClick={() => {
+                        setCurrentRate(data?.btc?.sell);
+                        setBtcPrice(0);
+                        setNairaPrice(0);
+                      }}
                     >
                       Sell
                     </button>
@@ -146,10 +154,13 @@ const SectionThree = () => {
 
                   <div>
                     <input
-                      onChange={(e) => setCryptoInput(e.target.value)}
-                      value={cryptoInput}
+                      onChange={(e) => {
+                        setBtcPrice(e.target.value);
+                        setNairaPrice(e.target.value * currentRate);
+                      }}
+                      value={btcPrice}
                       className="crypto-input-box"
-                      type="text"
+                      type="number"
                     />
                   </div>
                 </div>
@@ -162,7 +173,17 @@ const SectionThree = () => {
                     <span className="ms-2">NGN</span>
                   </div>
 
-                  <div>{currentRate * cryptoInput * Number(btcPrice?.usd)}</div>
+                  <div>
+                    <input
+                      onChange={(e) => {
+                        setNairaPrice(e.target.value);
+                        setBtcPrice(e.target.value / currentRate);
+                      }}
+                      value={nairaPrice}
+                      className="crypto-input-box"
+                      type="number"
+                    />
+                  </div>
                 </div>
 
                 <div className="mt-3 xchange-text-box mx-auto">

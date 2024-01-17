@@ -17,12 +17,18 @@ import { useEffect, useState } from "react";
 const Hero = () => {
   const [data, setData] = useState({});
   const [currentRate, setCurrentRate] = useState();
+  const [nairaValue, setNairaValue] = useState(0);
+  const [dollarValue, setDollarValue] = useState(0);
+  const [usdtValue, setUsdtValue] = useState(0);
+  const [btcValue, setBtcValue] = useState(0);
   useEffect(() => {
     axios
       .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
       .then((res) => {
         setData(res?.data?.data);
-        setCurrentRate(res?.data?.data?.btc?.buy);
+        setCurrentRate(res?.data?.data?.usd?.buy);
+        setBtcValue(res?.data?.data?.btc?.buy);
+        setUsdtValue(res?.data?.data?.usdt?.buy);
       })
       .catch((err) => {
         // console.log(err);
@@ -61,7 +67,13 @@ const Hero = () => {
                       role="tab"
                       aria-controls="pills-home"
                       aria-selected="true"
-                      onClick={() => setCurrentRate(data?.btc?.buy)}
+                      onClick={() => {
+                        setCurrentRate(data?.usd?.buy);
+                        setBtcValue(data?.btc?.buy);
+                        setUsdtValue(data?.usdt?.buy);
+                        setNairaValue(0);
+                        setDollarValue(0);
+                      }}
                     >
                       Buy
                     </button>
@@ -76,7 +88,13 @@ const Hero = () => {
                       role="tab"
                       aria-controls="pills-profile"
                       aria-selected="false"
-                      onClick={() => setCurrentRate(data?.btc?.sell)}
+                      onClick={() => {
+                        setCurrentRate(data?.usd?.sell);
+                        setBtcValue(data?.btc?.sell);
+                        setUsdtValue(data?.usdt?.sell);
+                        setNairaValue(0);
+                        setDollarValue(0);
+                      }}
                     >
                       Sell
                     </button>
@@ -88,7 +106,16 @@ const Hero = () => {
                     <span className="ms-2">NGN</span>
                     <img className="ms-2" width="10" src={ArrowDown} alt="" />
                   </div>
-                  <div>74,000</div>
+                  {/* <div>74,000</div> */}
+                  <input
+                    value={nairaValue}
+                    onChange={(e) => {
+                      setNairaValue(e.target.value);
+                      setDollarValue(e.target.value / currentRate);
+                    }}
+                    className="crypto-input-box"
+                    type="number"
+                  />
                 </div>
                 <div className="ms-5 my-1">Rate {currentRate}/$</div>
 
@@ -98,7 +125,15 @@ const Hero = () => {
                     <span className="ms-2">USD</span>
                     <img className="ms-2" width="10" src={ArrowDown} alt="" />
                   </div>
-                  <div>100.43</div>
+                  <input
+                    value={dollarValue}
+                    onChange={(e) => {
+                      setDollarValue(e.target.value);
+                      setNairaValue(e.target.value * currentRate);
+                    }}
+                    className="crypto-input-box"
+                    type="number"
+                  />
                 </div>
                 <div className="my-4 text-center">
                   <button
@@ -113,11 +148,13 @@ const Hero = () => {
               <div className="icon-btn-wrapper mx-lg-0 mx-auto">
                 {/*  */}
                 <div className="icon-btn">
-                  <img src={Tether} alt="bitcoin logo" /> <span>730/$</span>
+                  <img src={Tether} alt="bitcoin logo" />{" "}
+                  <span>{usdtValue}/$</span>
                 </div>
 
                 <div className="icon-btn">
-                  <img src={Bitcoin} alt="bitcoin logo" /> <span>728/$</span>
+                  <img src={Bitcoin} alt="bitcoin logo" />{" "}
+                  <span>{btcValue}/$</span>
                 </div>
               </div>
             </div>

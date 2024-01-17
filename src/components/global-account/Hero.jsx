@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import axios from "axios";
 import Nig from "../../assets/images/nig.png";
 import US from "../../assets/images/usa.png";
 import { Link } from "react-router-dom";
@@ -21,13 +22,35 @@ const Hero = () => {
   const showModal = () => {
     setModal(true);
   };
+  const [data, setData] = useState({});
+  const [currentRate, setCurrentRate] = useState();
+  const [nairaValue, setNairaValue] = useState(0);
+  const [dollarValue, setDollarValue] = useState(0);
+  const [usdtValue, setUsdtValue] = useState(0);
+  const [btcValue, setBtcValue] = useState(0);
+  useEffect(() => {
+    axios
+      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
+      .then((res) => {
+        setData(res?.data?.data);
+        setCurrentRate(res?.data?.data?.usd?.buy);
+        setBtcValue(res?.data?.data?.btc?.buy);
+        setUsdtValue(res?.data?.data?.usdt?.buy);
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
+  }, []);
   return (
     <div className="py-3 hero">
       <div className="container">
         <div className="row">
           <div className="col-lg">
             <h1>Global Bank Account</h1>
-            <p>Open a US Dollar, Nigerian Naira, Canadian Dollar, United Kingdom Pounds account in less than 1 minutes.</p>
+            <p>
+              Open a US Dollar, Nigerian Naira, Canadian Dollar, United Kingdom
+              Pounds account in less than 1 minutes.
+            </p>
 
             <div className="mt-3 position-relative image-container">
               <img src={phone} alt="phone" />
@@ -48,39 +71,101 @@ const Hero = () => {
             </div>
           </div>
           <div className="col-lg">
-            <div className="hero-exchange-rate-box mt-3 mx-auto">
-              <div style={{ background: "#219DFC" }} className="hero-exchange-header">
+            <div className="hero-exchange-rate-box exchange-rate-box mt-3 mx-auto">
+              <div
+                style={{ background: "#219DFC" }}
+                className="hero-exchange-header"
+              >
                 Exchange Rate
               </div>
-              <div className="d-flex justify-content-center mt-2">
-                <button className="buy-sell-btn buy-btn-bg">Buy</button>
-                <button className="buy-sell-btn bgc-green">Sell</button>
-              </div>
-
-              <div className="mt-2">
-                <div className="xchange-input-box">
-                  <div>
-                    <img width="30px" src={Nig} alt="nigeria flag" />
-                    <span className="ms-2">NGN</span>
-                    <img className="ms-2" width="10" src={ArrowDown} alt="" />
-                  </div>
-                  <div>74,000</div>
+              <ul
+                class="nav nav-pills mb-3 mt-2 m-auto w-full d-flex justify-content-center"
+                id="pills-tab"
+                role="tablist"
+              >
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="pills-home-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-home"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-home"
+                    aria-selected="true"
+                    onClick={() => {
+                      setCurrentRate(data?.usd?.buy);
+                      setBtcValue(data?.btc?.buy);
+                      setUsdtValue(data?.usdt?.buy);
+                      setNairaValue(0);
+                      setDollarValue(0);
+                    }}
+                  >
+                    Buy
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pills-profile-tab"
+                    data-bs-toggle="pill"
+                    data-bs-target="#pills-profile"
+                    type="button"
+                    role="tab"
+                    aria-controls="pills-profile"
+                    aria-selected="false"
+                    onClick={() => {
+                      setCurrentRate(data?.usd?.sell);
+                      setBtcValue(data?.btc?.sell);
+                      setUsdtValue(data?.usdt?.sell);
+                      setNairaValue(0);
+                      setDollarValue(0);
+                    }}
+                  >
+                    Sell
+                  </button>
+                </li>
+              </ul>
+              <div className="input-box-wrapper align-items-center mt-3">
+                <div>
+                  <img width="30px" src={Nig} alt="nigeria flag" />
+                  <span className="ms-2">NGN</span>
+                  <img className="ms-2" width="10" src={ArrowDown} alt="" />
                 </div>
-
-                <div className="ms-5 my-1">Rate 740/$</div>
-
-                <div className="xchange-input-box">
-                  <div>
-                    <img width="30px" src={US} alt="USA flag" />
-                    <span className="ms-2">USD</span>
-                    <img className="ms-2" width="10" src={ArrowDown} alt="" />
-                  </div>
-                  <div>100.43</div>
-                </div>
+                {/* <div>74,000</div> */}
+                <input
+                  value={nairaValue}
+                  onChange={(e) => {
+                    setNairaValue(e.target.value);
+                    setDollarValue(e.target.value / currentRate);
+                  }}
+                  className="crypto-input-box"
+                  type="number"
+                />
               </div>
+              <div className="ms-5 my-1">Rate {currentRate}/$</div>
 
+              <div className="input-box-wrapper align-items-center">
+                <div>
+                  <img width="30px" src={US} alt="nigeria flag" />
+                  <span className="ms-2">USD</span>
+                  <img className="ms-2" width="10" src={ArrowDown} alt="" />
+                </div>
+                <input
+                  value={dollarValue}
+                  onChange={(e) => {
+                    setDollarValue(e.target.value);
+                    setNairaValue(e.target.value * currentRate);
+                  }}
+                  className="crypto-input-box"
+                  type="number"
+                />
+              </div>
               <div className="my-4 text-center">
-                <button onClick={showModal} className="btn-without-shadow bgc-green">
+                <button
+                  onClick={showModal}
+                  className="btn-without-shadow bgc-green"
+                >
                   Get started
                 </button>
               </div>
