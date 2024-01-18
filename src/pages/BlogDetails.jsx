@@ -49,7 +49,12 @@ const BlogDetails = () => {
             <div
               className="accordion-body"
               dangerouslySetInnerHTML={{
-                __html: sanitizeHtml(post?.content),
+                __html: sanitizeHtml(
+                  post?.content.replace(
+                    'style="color: rgb(255,255,255);"',
+                    'style="color: rgb(0,0,0);"'
+                  )
+                ),
               }}
             />
             <AppDownloadSection

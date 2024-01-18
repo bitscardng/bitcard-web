@@ -13,10 +13,12 @@ const Blog = () => {
     <div className="blog-page">
       <Hero />
       <BlogSection btnColor="#66B6FF" sectionTitle="Latest" bgColor="#5FC88F" />
-      <AppDownloadSection bgColor="#A875CF" content="spend, bank & trade crypto with ease " firstContentWord="send &" contentPosition="left" />
-      <BlogSection btnColor="#FCB721" sectionTitle="Crypto" bgColor="#767DFF" />
-      <TwoColumnBlog sectionTitle="Virtual card" btnColor="#5FC88F" bgColor="#F04086" />
-      <BlogSection btnColor="#FF6464" sectionTitle="Giftcard" bgColor="#2690BA" />
+      <AppDownloadSection
+        bgColor="#A875CF"
+        content="spend, bank & trade crypto with ease "
+        firstContentWord="send &"
+        contentPosition="left"
+      />
     </div>
   );
 };
