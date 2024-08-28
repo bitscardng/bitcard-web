@@ -13,6 +13,7 @@ import ArrowDown from "../../assets/images/arrow down.png";
 import { ModalContext } from "../../App";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { appConfig } from "../../config/app.config";
 
 const Hero = () => {
   const [data, setData] = useState({});
@@ -21,9 +22,11 @@ const Hero = () => {
   const [dollarValue, setDollarValue] = useState(0);
   const [usdtValue, setUsdtValue] = useState(0);
   const [btcValue, setBtcValue] = useState(0);
+
+  const { api_url, playStoreUrl } = appConfig
   useEffect(() => {
     axios
-      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
+      .get(`${api_url}/v1/crypto-transactions/bitscard-rates`)
       .then((res) => {
         setData(res?.data?.data);
         setCurrentRate(res?.data?.data?.usd?.buy);
@@ -171,7 +174,7 @@ const Hero = () => {
 
               <div className="app-btn-wrapper mx-auto">
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.production.bitscard"
+                  href={playStoreUrl}
                   className="app-btn"
                 >
                   <img src={playStoreLogo} alt="google play logo" />

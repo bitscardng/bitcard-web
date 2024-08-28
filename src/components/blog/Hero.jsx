@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { appConfig } from "../../config/app.config";
 
 const responsive = {
   oneForAll: {
@@ -15,9 +16,11 @@ const Hero = () => {
   const [blog, setBlog] = useState(null);
   const [blogErr, setBlogErr] = useState(null);
 
+  const { api_url } = appConfig;
+
   const fetchNews = async () => {
     try {
-      const { data } = await axios.get("https://api.bitscard.app/api/v1/news");
+      const { data } = await axios.get(`${api_url}/v1/news`);
 
       setBlog(data.data);
     } catch (error) {

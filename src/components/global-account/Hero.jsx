@@ -16,6 +16,7 @@ import country6 from "../../assets/images/ghana.png";
 import country7 from "../../assets/images/united-kingdom.png";
 import country8 from "../../assets/images/european-union.png";
 import { ModalContext } from "../../App";
+import { appConfig } from "../../config/app.config";
 
 const Hero = () => {
   const [modal, setModal] = useContext(ModalContext);
@@ -28,9 +29,12 @@ const Hero = () => {
   const [dollarValue, setDollarValue] = useState(0);
   const [usdtValue, setUsdtValue] = useState(0);
   const [btcValue, setBtcValue] = useState(0);
+
+  const { api_url } = appConfig
+
   useEffect(() => {
     axios
-      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
+      .get(`${api_url}/v1/crypto-transactions/bitscard-rates`)
       .then((res) => {
         setData(res?.data?.data);
         setCurrentRate(res?.data?.data?.usd?.buy);

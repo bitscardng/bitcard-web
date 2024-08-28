@@ -1,8 +1,10 @@
 import React from "react";
 import AppleLogo from "../assets/images/apple.png";
 import playStoreLogo from "../assets/images/Inner Plugin Iframe.png";
+import { appConfig } from "../config/app.config";
 
 const AppDownloadBtn = ({ location }) => {
+    const { playStoreUrl } = appConfig
   return (
     <div
       className={`d-flex ${
@@ -11,10 +13,10 @@ const AppDownloadBtn = ({ location }) => {
     >
       <a
         target="_blank"
-        href="https://play.google.com/store/apps/details?id=com.val.bitscard"
+        href={playStoreUrl}
       >
         <a
-          href="https://play.google.com/store/apps/details?id=com.production.bitscard"
+          href={playStoreUrl}
           className="app-btn"
         >
           <img src={playStoreLogo} alt="google play logo" />

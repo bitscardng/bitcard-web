@@ -4,6 +4,7 @@ import Netflix from "../../assets/images/Netflix 1.png";
 import Coca from "../../assets/images/Always Coca-Cola 1.png";
 import News from "../../assets/images/_124643633_gettyimages-1384896168 1.png";
 import axios from "axios";
+import { appConfig } from "../../config/app.config";
 
 const blogs = [
   {
@@ -24,9 +25,11 @@ const Latest = ({ sectionTitle, bgColor, btnColor }) => {
   const [blog, setBlog] = useState([]);
   const [blogErr, setBlogErr] = useState(null);
 
+  const { api_url } = appConfig;
+
   const fetchNews = async () => {
     try {
-      const { data } = await axios.get("https://api.bitscard.app/api/v1/news");
+      const { data } = await axios.get(`${api_url}/v1/news`);
 
       setBlog(data.data);
     } catch (error) {

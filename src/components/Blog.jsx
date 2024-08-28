@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { appConfig } from "../config/app.config";
 
 const Blog = () => {
   const [blog, setBlog] = useState(null);
   const [blogErr, setBlogErr] = useState(null);
 
+  const { api_url } = appConfig
+
   const fetchNews = async () => {
     try {
       const {
         data: { data },
-      } = await axios.get(`https://api.bitscard.app/api/v1/news?limit=3`);
+      } = await axios.get(`${api_url}/v1/news?limit=3`);
       setBlog(data);
       console.log(data);
     } catch (error) {

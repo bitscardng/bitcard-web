@@ -8,8 +8,7 @@ import BTC from "../../assets/images/BTC 2.png";
 import { ModalContext } from "../../App";
 import nig from "../../assets/images/nig.png";
 import axios from "axios";
-
-const url = `https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates`;
+import { appConfig } from "../../config/app.config";
 
 const Hero = () => {
   const [modal, setModal] = useContext(ModalContext);
@@ -19,6 +18,10 @@ const Hero = () => {
   const showModal = () => {
     setModal(true);
   };
+
+  const { api_url } = appConfig
+
+  const url = `${api_url}/v1/crypto-transactions/bitscard-rates`;
 
   const getCryptoRate = async () => {
     try {
@@ -38,7 +41,7 @@ const Hero = () => {
   const [currentRate, setCurrentRate] = useState();
   useEffect(() => {
     axios
-      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
+      .get(url)
       .then((res) => {
         setData(res?.data?.data);
         setCurrentRate(res?.data?.data?.btc?.buy);

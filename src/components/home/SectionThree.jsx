@@ -9,15 +9,19 @@ import Bit from "../../assets/images/bit.png";
 import nig from "../../assets/images/nig.png";
 import axios from "axios";
 import { ModalContext } from "../../App";
+import { appConfig } from "../../config/app.config";
 
 const SectionThree = () => {
   const [data, setData] = useState({});
   const [btcPrice, setBtcPrice] = useState(0);
   const [nairaPrice, setNairaPrice] = useState(0);
   const [currentRate, setCurrentRate] = useState();
+
+  const { api_url, playStoreUrl } = appConfig
+
   useEffect(() => {
     axios
-      .get("https://api.bitscard.app/api/v1/crypto-transactions/bitscard-rates")
+      .get(`${api_url}/v1/crypto-transactions/bitscard-rates`)
       .then((res) => {
         setData(res?.data?.data);
         setCurrentRate(res?.data?.data?.btc?.buy);
@@ -69,7 +73,7 @@ const SectionThree = () => {
             <div className="col-lg">
               <div className="app-btn-wrapper mx-auto mt-0">
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.production.bitscard"
+                  href={playStoreUrl}
                   className="app-btn"
                 >
                   <img src={playStoreLogo} alt="google play logo" />

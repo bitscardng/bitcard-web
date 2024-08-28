@@ -6,8 +6,12 @@ import Twitter from "../assets/images/twitter.png";
 import Tumblr from "../assets/images/tumblr.png";
 import playStoreLogo from "../assets/images/Inner Plugin Iframe.png";
 import AppleLogo from "../assets/images/apple.png";
+import { appConfig } from "../config/app.config";
 
 const Newsletter = () => {
+
+    const { playStoreUrl } = appConfig
+
   return (
     <section className="py-4 newsletter-section">
       <div className="container">
@@ -53,7 +57,7 @@ const Newsletter = () => {
             <div className="app-btn-wrapper ms-auto">
               <a
                 target="_blank"
-                href="https://play.google.com/store/apps/details?id=com.production.bitscard"
+                href={playStoreUrl}
               >
                 <div className="app-btn">
                   <img src={playStoreLogo} alt="google play logo" />
