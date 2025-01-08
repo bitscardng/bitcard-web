@@ -3,13 +3,26 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-if (window.innerWidth <= 700) {
+
+const detectDeviceType = () => {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(userAgent)) {
+    return "Tablet";
+  }
+  if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(userAgent)) {
+    return "Mobile";
+  }
+  return "Desktop";
+};
+
+if (detectDeviceType() === "Mobile") {
   window.location.replace("https://m.bitscard.app/");
 }
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {window.innerWidth <= 700 ? <div></div> : <App />}
+    {detectDeviceType() === "Mobile" ? <div></div> : <App />}
   </React.StrictMode>
 );
 
