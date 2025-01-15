@@ -13,6 +13,8 @@ import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import FAQ from "./pages/FAQ";
 import DownloadModal from "./components/DownloadModal";
+import Contact from "./pages/Contact";
+import Privacy from "./pages/privacy";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
         path: "faq",
         element: <FAQ />,
       },
+      {
+        path:'contact',
+        element: <Contact />,
+      },
+      {
+        path:'privacy',
+        element: <Privacy />,
+      }
     ],
   },
   {

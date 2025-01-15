@@ -17,7 +17,7 @@ const FAQ = () => {
   const [faqErr, setFaqErr] = useState(null);
   const fetchFAQ = async () => {
     try {
-      const res = await axios.get("https://api.bitscard.app/api/v1/faq");
+      const res = await axios.get("https://bitscard-backend-v1-0.onrender.com/api/v1/faq");
       setFaq(res.data.data);
     } catch (error) {
       setFaqErr(error.message);

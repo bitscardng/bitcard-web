@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { appConfig } from "../config/app.config";
+import Loading from "./Loading";
 
 const Blog = () => {
   const [blog, setBlog] = useState(null);
@@ -40,8 +41,7 @@ const Blog = () => {
           {blogErr !== null
             ? `You have encountered an error ${blogErr}`
             : blog === null
-            ? "loading..."
-            : blog.map((blog) => {
+              ? <div className="text-center"> <Loading /></div> : blog.map((blog) => {
                 return (
                   <div key={blog._id} className="col">
                     <Link to={`/blog/${blog._id}`}>

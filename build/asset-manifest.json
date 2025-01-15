@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.f51d0bb9.css",
-    "main.js": "/static/js/main.4fd6815b.js",
+    "main.js": "/static/js/main.488946e4.js",
     "static/js/787.5b4493e5.chunk.js": "/static/js/787.5b4493e5.chunk.js",
     "static/media/map-bg.png": "/static/media/map-bg.2db94f01c3a7f8e38934.png",
     "static/media/human.png": "/static/media/human.b2e567d235ba068aee3c.png",
@@ -30,6 +30,7 @@
     "static/media/3d-plastilina-three-quarter-view-of-a-bitcoin-emblem 1.png": "/static/media/3d-plastilina-three-quarter-view-of-a-bitcoin-emblem 1.91b085219e6e52209c2e.png",
     "static/media/itunes 2.png": "/static/media/itunes 2.85ef09afb2b3cd54dcb8.png",
     "static/media/half-phone1.png": "/static/media/half-phone1.5c0ef72da829a6859079.png",
+    "static/media/contact-doodle.png": "/static/media/contact-doodle.9b72fe71d7a95b4a2cd3.png",
     "static/media/half-phone2.png": "/static/media/half-phone2.0588ce4a288938d6f131.png",
     "static/media/08.png": "/static/media/08.6704bc989f10440edc42.png",
     "static/media/appleCard.png": "/static/media/appleCard.a950a70469963d691f95.png",
@@ -44,15 +45,16 @@
     "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/contact-us.svg": "/static/media/contact-us.bd9def8d8ab69597627e7231db612cd0.svg",
     "index.html": "/index.html",
     "static/media/x.svg": "/static/media/x.c3ba863927ec147fe640eec0d81bd0b3.svg",
     "static/media/Rectangle 2.svg": "/static/media/Rectangle 2.ce49c90797f16c125bf13f55509d55ce.svg",
     "main.f51d0bb9.css.map": "/static/css/main.f51d0bb9.css.map",
-    "main.4fd6815b.js.map": "/static/js/main.4fd6815b.js.map",
+    "main.488946e4.js.map": "/static/js/main.488946e4.js.map",
     "787.5b4493e5.chunk.js.map": "/static/js/787.5b4493e5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f51d0bb9.css",
-    "static/js/main.4fd6815b.js"
+    "static/js/main.488946e4.js"
   ]
 }
